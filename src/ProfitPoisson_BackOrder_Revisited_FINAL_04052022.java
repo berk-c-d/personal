@@ -72,7 +72,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 		int m = (int) data[i][14];
 
 	*/
-            //Base case scenario parameter set:
+            //Base case scenario parameter set::
             int unitCost = 40;
 
             double holdingCost = 2;
