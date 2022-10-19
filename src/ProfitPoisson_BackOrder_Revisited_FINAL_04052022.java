@@ -3,6 +3,7 @@ import java.io.PrintWriter;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.stream.IntStream;
 
 
@@ -13,7 +14,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
         int BigM=10000; int nresult =70;
 
-        PrintWriter Solution = new PrintWriter("Solution_oneway10timesallparameter_06052022_rev_berk.txt");
+        //PrintWriter Solution = new PrintWriter("Solution_oneway10timesallparameter_06052022_rev_berk.txt");
 
         int nExperiment = 1;
 
@@ -79,7 +80,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
             double backorderCost = 20;
 
-            int salvageValue = 30;  ///normalde 0 dı 0 ken arrayler repeat edebilirrr!!!!!!!!!!!
+            int salvageValue = 0;  ///normalde 0 dı 0 ken arrayler repeat edebilirrr!!!!!!!!!!!
 
             int fixedCost = 25;
 
@@ -91,7 +92,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
             double alpha = 0.5; //return rate
 
-            double lambda = 4; //demand rate
+            double lambda = 14; //demand rate
 
             double alphaC = 0; //naive
 
@@ -99,9 +100,9 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
             double alphaSimulation = 0.5;
 
-            double lambdaSimulation = 4;
+            double lambdaSimulation = 14;
 
-            int m = 8; //max demand
+            int m = 10; //max demand
 
 
             //--------------Inventory-----------------------------------------------------------------------------------------------------
@@ -154,7 +155,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
                 Solutionn.close();
             }*/
             //write_sols_for_Z_bigSDouble(period,"Solution",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble);
-            write_sols_for_Z_bigSDouble(period,"Solution",M,M+m,0,m,Z_bigSDouble);
+            write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m,period,"Solution",M,M+m,0,m,Z_bigSDouble);
             //-------------------------------------------------
             double[][][][] Z_bigSDoubleC = new double[period+1][2][n][sl];
             Z_bigSDoubleC[period][0] = ZEndcalculate(I, period, n,sl, m, alphaC, unitCost, salvageValue, retailPrice, returnCredit, fixedCost,unitCost, binomialDistProbabilityC);
@@ -167,7 +168,8 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
             }
 
             //write_sols_for_Z_bigSDouble(period,"SolutionC",0,Z_bigSDoubleC[0][0].length,0,Z_bigSDoubleC[0][0][0].length,Z_bigSDoubleC);
-            write_sols_for_Z_bigSDouble(period,"SolutionC",M,M+m,0,m,Z_bigSDoubleC);
+            //write_sols_for_Z_bigSDouble(period,"SolutionC",M,M+m,0,m,Z_bigSDoubleC);
+            write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"SolutionC",M,M+m,0,m,Z_bigSDoubleC);
             double OP = Z_bigSDouble[0][0][M][0];
             double OPC = Z_bigSDoubleC[0][0][M][0];
 
@@ -175,15 +177,15 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
             arr = SimulationMatrix_v3adapted(period, Z_bigSDouble,Z_bigSDoubleC,  OP, OPC, m, alphaSimulation, lambdaSimulation, unitCost, fixedCost, retailPrice, returnCredit, holdingCost, backorderCost, salvageValue, M, nresult);
 
             //Experiment[i] = arr;
-
+            PrintWriter Solution = new PrintWriter("max_per_"+String.valueOf(period)+"__maxdem_"+String.valueOf(m)+"__alpha_"+String.valueOf(alphaSimulation)+"__lambda_"+String.valueOf(lambdaSimulation)+"_Simulation_result.txt");
             Solution.println(Arrays.toString(arr));
 
             System.out.println(Arrays.toString(arr));
             System.out.println(OP);
             System.out.println(OPC);
-
+            Solution.close();
         }
-        Solution.close();
+        //Solution.close();
 
 
         Instant inst2 = Instant.now();
@@ -198,6 +200,30 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
             String ssss3=String.valueOf(order_up_to_range_low);
             String ssss4=String.valueOf(order_up_to_range_high);
             PrintWriter Solutionn= new PrintWriter(filename+" for period "+ssss+"__Inventory range "+ssss1+" to"+ssss2+"__Orderupto range "+ssss3+" to "+ssss4+".txt");
+            for (int inv = inventory_range_low; inv < inventory_range_high; inv++) {
+                for (int j = order_up_to_range_low; j <  order_up_to_range_high; j++) {
+                    resultt=new double[]{inv,j,Z_bigSDouble[p][0][inv][j]};
+                    Solutionn.println(Arrays.toString(resultt));
+                }
+            }
+            Solutionn.close();
+        }
+
+
+    }
+    public static void write_sols_for_Z_bigSDouble_v2(int maxperiod,double alphaval,double lambdaval, int maxdemand,int period,String filename,int inventory_range_low,int inventory_range_high,int order_up_to_range_low,int order_up_to_range_high,double[][][][] Z_bigSDouble ) throws FileNotFoundException {
+        double[] resultt = new double[3];
+        for (int p =0; p <=period; p++) {
+            String ssss=String.valueOf(p);
+            String ssss1=String.valueOf(inventory_range_low);
+            String ssss2=String.valueOf(inventory_range_high);
+            String ssss3=String.valueOf(order_up_to_range_low);
+            String ssss4=String.valueOf(order_up_to_range_high);
+            String maxperiods=String.valueOf(maxperiod);
+            String alphavals=String.valueOf(alphaval);
+            String lambdavals=String.valueOf(lambdaval);
+            String maxdemands=String.valueOf(maxdemand);
+            PrintWriter Solutionn= new PrintWriter("maxper_"+maxperiods+"__maxdem_"+maxdemands+"__alpha_"+alphavals+"__lambda_"+lambdavals+"-"+filename+" for period "+ssss+"__Inventory range "+ssss1+" to"+ssss2+"__Orderupto range "+ssss3+" to "+ssss4+".txt");
             for (int inv = inventory_range_low; inv < inventory_range_high; inv++) {
                 for (int j = order_up_to_range_low; j <  order_up_to_range_high; j++) {
                     resultt=new double[]{inv,j,Z_bigSDouble[p][0][inv][j]};
@@ -267,7 +293,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
         int[] numberOfOrderC = new int[period];
 
         for (int p = 0; p < period; p++) {
-            D[p] = getPoissonRandom(lambdaSimulation);
+            D[p] = getPoissonRandomweb(lambdaSimulation);
             if (D[p]>m) {
                 D[p]=m;
             }
@@ -325,15 +351,11 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
         }
 
-
-
         I[period] = I[period - 1] + O[period - 1] + R[period - 1] - D[period - 1];
         R[period] = getBinomialRandom(SL[period - 1], alphaSimulation);
 
         IC[period] = IC[period - 1] + OC[period - 1] + RC[period - 1] - D[period - 1];
         RC[period] = getBinomialRandom(SLC[period - 1], alphaSimulation);
-
-
 
         double procurementCost = 0;
         double totalOrderingCost = 0;
@@ -402,9 +424,6 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
             Revenue1 += SL[p] * retailPrice;
             Revenue = Revenue1 + SL[period] * retailPrice;
 
-
-
-
             procurementCostC += OC[p] * unitCost;
 
             if (OC[p] > 0) {
@@ -443,19 +462,12 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
             Revenue1C += SLC[p] * retailPrice;
             RevenueC = Revenue1C + SLC[period] * retailPrice;
 
-
-
-
             double salvage=I[period]+R[period];
             double SLV= salvage;
 
             double salvageC=IC[period]+RC[period];
             double SLVC= salvageC;
         }
-
-
-
-
         int[] orderPeriods = new int[period+1];
         int [] cycleBO= new int [period+1];
         int [] numberOfBO= new int [period];
@@ -463,60 +475,32 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
         int[] orderPeriodsC = new int[period+1];
         int [] cycleBOC= new int [period+1];
         int [] numberOfBOC= new int [period];
-
-
 ///////////////////////////////////////////////////////
 // CSL : Cycle Service Level for the smart retailer (Type 1)
 
         int j=0;
         int p=0;
-
         while (p<period) {
-
             if (numberOfOrder[p]==1) {
-
                 orderPeriods[j]=p ;
-
                 j=j+1;
-
             }
-
             p=p+1;
-
             orderPeriods[j]=period;
-
         }
-
-
-
         int cycleService=0;
         cycleBO[period] =0;
-
         for (int i = 0; i < sumNumberOfOrder ; i++) {
-
             for (int t = orderPeriods[i]; t < orderPeriods[i+1]; t++) {
-
                 cycleBO[i] +=BO[t];
-
             }
-
         }
-
-
-
         for (int i = 0; i < sumNumberOfOrder; i++) {
-
-
             if(cycleBO[i]==0) {
-
                 cycleService=cycleService+1		;
-
             }
         }
-
         CSL =(double)cycleService/sumNumberOfOrder ;
-
-
 ////////////////////////////////////////////////////////////
 // CSLC : Cycle Service Level for the naive retailer (Type 1)
 
@@ -524,49 +508,26 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
         int pp=0;
 
         while (pp<period) {
-
             if (numberOfOrderC[pp]==1) {
-
                 orderPeriodsC[jj]=pp ;
-
                 jj=jj+1;
-
             }
-
             pp=pp+1;
-
             orderPeriodsC[jj]=period;
-
         }
-
-
-
         int cycleServiceC=0;
-
         cycleBOC[period] =0;
-
         for (int i = 0; i < sumNumberOfOrderC ; i++) {
-
             for (int t = orderPeriodsC[i]; t < orderPeriodsC[i+1]; t++) {
-
                 cycleBOC[i] +=BOC[t];
-
             }
-
         }
-
-
 
         for (int i = 0; i < sumNumberOfOrderC; i++) {
-
-
             if(cycleBOC[i]==0) {
-
                 cycleServiceC=cycleServiceC+1		;
-
             }
         }
-
         CSLC =(double)cycleServiceC/sumNumberOfOrderC ;
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -577,41 +538,19 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
         double fraverageC =0;
         double demand = 0;
 
-
-
         double[] inventoryonhand = new double[period];
 
         for (int ppp = 0; ppp < period ; ppp++) {
-
             demand +=D[ppp];
-
             inventoryonhand[ppp] = IO[ppp] + O[ppp] + R[ppp];
-
-
             fr += (Math.min(D[ppp], inventoryonhand[ppp])) ;
-
-
             fraverage =  fr /(double) demand;
-
 ///////////////////////////////////////////////////////////////////////
 // fraverageC : Fill rate for the naive retailer	(Type 2)
-
             double[] inventoryonhandC = new double[period];
-
-
-
-
             inventoryonhandC[ppp] = IOC[ppp] + OC[ppp] + RC[ppp];
-
             ;
-
-
             frC += (Math.min(D[ppp], inventoryonhandC[ppp])) ;
-
-
-
-
-
             fraverageC = frC /demand;
         }
 ////////////////////////////////////////////////////////////////////////
@@ -833,6 +772,17 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
         return k - 1;
 
     }
+    private static int getPoissonRandomweb(double mean) {
+        Random r = new Random();
+        double L = Math.exp(-mean);
+        int k = 0;
+        double p = 1.0;
+        do {
+            p = p * r.nextDouble();
+            k++;
+        } while (p > L);
+        return k - 1;
+    }
 
     public static int getBinomialRandom(int n, double alpha) {
 
@@ -870,7 +820,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
     }
 
-    private static double[][] binomialDist(int sl, double alpha) {
+    public static double[][] binomialDist(int sl, double alpha) {
 
         double[][] P = new double[sl][sl];
 
@@ -887,7 +837,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
     }
 
-    private static double[] poissonDist(double lambda,int m) {
+    public static double[] poissonDist(double lambda,int m) {
 
         double[] P = new double[m+1];
 
