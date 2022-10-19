@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0cc88166-5847-4401-8a05-13469bd16016" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/withcomment_1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/withcomment_2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/withcomment_4.java" afterDir="false" />
+    <list default="true" id="0cc88166-5847-4401-8a05-13469bd16016" name="Changes" comment="1">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,11 +41,14 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/berkc/IdeaProjects/personal&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.space&quot;
   }
 }</component>
   <component name="RunManager" selected="Application.ProfitPoisson_BackOrder_Revisited_FINAL_04052022">
     <configuration name="ProfitPoisson_BackOrder_Revisited_FINAL_04052022" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="ProfitPoisson_BackOrder_Revisited_FINAL_04052022" />
       <module name="personal" />
       <method v="2">
@@ -63,6 +58,17 @@
     <configuration name="ProfitPoisson_BackOrder_Revisited_FINAL_04052022_original" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ProfitPoisson_BackOrder_Revisited_FINAL_04052022_original" />
       <module name="personal" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -83,6 +89,21 @@
       <option name="presentableId" value="Default" />
       <updated>1663874044418</updated>
     </task>
+    <task id="LOCAL-00001" summary="1">
+      <created>1665645753482</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665645753482</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1">
+      <created>1665645885620</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665645885620</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -96,6 +117,10 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -108,26 +133,11 @@
           <line>234</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022.java</url>
-          <line>245</line>
-          <option name="timeStamp" value="73" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022.java</url>
-          <line>202</line>
-          <option name="timeStamp" value="74" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="ZZEnd[100]" />
-        <watch expression="ZEnd" />
-        <watch expression="S" />
-        <watch expression="Z[1]" />
-        <watch expression="bigS" />
-        <watch expression="ZZZ" />
+        <watch expression="arr[0]" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
