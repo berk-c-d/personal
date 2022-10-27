@@ -7,18 +7,72 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 
-public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
+public class withcomment_5 {
 
     public static void main(String[] args) throws FileNotFoundException {
         Instant inst1 = Instant.now();
+
         int BigM=10000; int nresult =70;
+//gggg
+        //PrintWriter Solution = new PrintWriter("Solution_oneway10timesallparameter_06052022_rev_berk.txt");
+
         int nExperiment = 1;
 
+        //double[][] Experiment = new double[nExperiment][nresult];
+/*                  ------------------------------------------------------------------------
+        double[][] data = new double[nExperiment][15];
+
+        Scanner input = new Scanner(new File("Input_parameter_06052022.txt"));
+
+        for (int i = 0; i < nExperiment; i++) {
+
+            for (int j = 0; j < 15; j++) {
+
+                data[i][j] = input.nextDouble();
+
+            }
+
+        }
+
+        input.close();
+              ------------------------------------------------------------------------*/
+        //For batch sensitivity analysis, use this
 
         for (int i = 0; i < nExperiment; i++) {
 
             System.out.println(" Experiment: " + i);
 
+		/*		int unitCost = (int) data[i][0];
+
+		double holdingCost = (double) data[i][1];
+
+		double backorderCost = (double) data[i][2];
+
+		int salvageValue = (int) data[i][3];
+
+		int fixedCost = (int) data[i][4];
+
+		int returnCredit = (int) data[i][5];
+
+		int retailPrice = (int) data[i][6];
+
+		int period = (int) data[i][7];
+
+		double alpha = (double) data[i][8];
+
+		double lambda = (double) data[i][9];
+
+		double alphaC = (double) data[i][10];
+
+		double lambdaC = (double) data[i][11];
+
+		double alphaSimulation = (double) data[i][12];
+
+		double lambdaSimulation = (double) data[i][13];
+
+		int m = (int) data[i][14];
+
+	*/
             //Base case scenario parameter set::
             int unitCost = 40;
 
@@ -38,7 +92,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
             double alpha = 0.5; //return rate
 
-            double lambda = 4; //demand rate
+            double lambda = 14; //demand rate
 
             double alphaC = 0; //naive
 
@@ -46,7 +100,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
             double alphaSimulation = 0.5;
 
-            double lambdaSimulation = 4;
+            double lambdaSimulation = 14;
 
             int m = 10; //max demand
 
@@ -86,15 +140,23 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
             for (int p = period - 1; p >= 0; p--) {
                 Z_bigSDouble[p] = periodMatrixmodifiedv4(I, S, period, Z_bigSDouble[p + 1][0], J, n, sl, s, m, alpha, lambda, unitCost, fixedCost, retailPrice, returnCredit, holdingCost, backorderCost, BigM, MM, M, poissonDistProbability, binomialDistProbability);
             }
-
-            //write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m,period,"Solution",M,M+m,0,m,Z_bigSDouble);
-             write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"ALL_COND_Solution",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
-            //write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"Solution",0,s+m,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble);
-            //write_sols_for_Z_bigSDouble_v3(period,alpha,lambda,m, period,"ONLY_POSS_COND_Solution",0,s+m,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
-            write_sols_for_Z_bigSDouble_v3(period,alpha,lambda,m, period,"ONLY_POSS_COND_Solution",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
-            //-------------------------------------------------NAIVE--------------------------------------------------------------------------------
-
-
+            /*
+            //----------------------------Yazma kısmı function yapılabilir
+            double[] resultt = new double[3];
+            for (int p =0; p <=period; p++) {
+                String ssss=String.valueOf(p);
+                PrintWriter Solutionn= new PrintWriter("Solution"+ssss+"_Z"+ssss+"_01092022_Noreturn_berk.txt");
+                for (int inv = M; inv <  m+M; inv++) {
+                    for (int j = 0; j <  m; j++) {
+                        resultt=new double[]{inv,j,Z_bigSDouble[p][0][inv][j]};
+                        Solutionn.println(Arrays.toString(resultt));
+                    }
+                }
+                Solutionn.close();
+            }*/
+            //write_sols_for_Z_bigSDouble(period,"Solution",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble);
+            write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m,period,"Solution",M,M+m,0,m,Z_bigSDouble);
+            //-------------------------------------------------
             double[][][][] Z_bigSDoubleC = new double[period+1][2][n][sl];
             Z_bigSDoubleC[period][0] = ZEndcalculate(I, period, n,sl, m, alphaC, unitCost, salvageValue, retailPrice, returnCredit, fixedCost,unitCost, binomialDistProbabilityC);
 
@@ -102,17 +164,12 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
             JC = Jcalculate(S, period, s,sl, m, alphaC, lambdaC,holdingCost, backorderCost, MM,poissonDistProbabilityC,binomialDistProbabilityC);
 
             for (int p = period - 1; p >= 0; p--) {
-                    Z_bigSDoubleC[p]=periodMatrixmodifiedv4(I, S,period, Z_bigSDoubleC[p + 1][0],JC, n, sl, s, m, alphaC, lambdaC, unitCost, fixedCost, retailPrice, returnCredit, holdingCost, backorderCost, BigM, MM, M, poissonDistProbabilityC,binomialDistProbabilityC);
+                Z_bigSDoubleC[p]=periodMatrixmodifiedv4(I, S,period, Z_bigSDoubleC[p + 1][0],JC, n, sl, s, m, alphaC, lambdaC, unitCost, fixedCost, retailPrice, returnCredit, holdingCost, backorderCost, BigM, MM, M, poissonDistProbabilityC,binomialDistProbabilityC);
             }
 
             //write_sols_for_Z_bigSDouble(period,"SolutionC",0,Z_bigSDoubleC[0][0].length,0,Z_bigSDoubleC[0][0][0].length,Z_bigSDoubleC);
             //write_sols_for_Z_bigSDouble(period,"SolutionC",M,M+m,0,m,Z_bigSDoubleC);
-
-            //write_sols_for_Z_bigSDouble_v2(period,alphaC,lambdaC,m, period,"SolutionC",0,Z_bigSDoubleC[0][0].length,0,Z_bigSDoubleC[0][0][0].length,Z_bigSDoubleC);
-            //write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"SolutionC",M,M+m,0,m,Z_bigSDoubleC);
-            //write_sols_for_Z_bigSDouble_v3(period,alphaC,lambdaC,m, period,"SolutionC",0,s+m,0,Z_bigSDoubleC[0][0][0].length,Z_bigSDoubleC,M,MM);
-            //write_sols_for_Z_bigSDouble_v3(period,alphaC,lambdaC,m, period,"SolutionC",0,Z_bigSDoubleC[0][0].length,0,Z_bigSDoubleC[0][0][0].length,Z_bigSDoubleC,M,MM);
-
+            write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"SolutionC",M,M+m,0,m,Z_bigSDoubleC);
             double OP = Z_bigSDouble[0][0][M][0];
             double OPC = Z_bigSDoubleC[0][0][M][0];
 
@@ -134,24 +191,19 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
         Instant inst2 = Instant.now();
         System.out.println("Elapsed Time: "+ Duration.between(inst1, inst2).toString());
     }
-    public static void write_sols_for_Z_bigSDouble_v2(int maxperiod,double alphaval,double lambdaval, int maxdemand,int period,String filename,int inventory_range_low,int inventory_range_high,int order_up_to_range_low,int order_up_to_range_high,double[][][][] Z_bigSDouble,int M, int MM ) throws FileNotFoundException {
+    public static void write_sols_for_Z_bigSDouble(int period,String filename,int inventory_range_low,int inventory_range_high,int order_up_to_range_low,int order_up_to_range_high,double[][][][] Z_bigSDouble ) throws FileNotFoundException {
         double[] resultt = new double[3];
         for (int p =0; p <=period; p++) {
             String ssss=String.valueOf(p);
-            String ssss1=String.valueOf(inventory_range_low-M);
-            String ssss2=String.valueOf(inventory_range_high-M);
-            String ssss3=String.valueOf(order_up_to_range_low-MM);
-            String ssss4=String.valueOf(order_up_to_range_high-MM);
-            String maxperiods=String.valueOf(maxperiod);
-            String alphavals=String.valueOf(alphaval);
-            String lambdavals=String.valueOf(lambdaval);
-            String maxdemands=String.valueOf(maxdemand);
-            PrintWriter Solutionn= new PrintWriter("maxper_"+maxperiods+"__maxdem_"+maxdemands+"__alpha_"+alphavals+"__lambda_"+lambdavals+"-"+filename+" for period "+ssss+"__Inventory range "+ssss1+" to"+ssss2+"__Orderupto range "+ssss3+" to "+ssss4+".csv");
-            Solutionn.println("Inventory,Previous_sale,Profit");
+            String ssss1=String.valueOf(inventory_range_low);
+            String ssss2=String.valueOf(inventory_range_high);
+            String ssss3=String.valueOf(order_up_to_range_low);
+            String ssss4=String.valueOf(order_up_to_range_high);
+            PrintWriter Solutionn= new PrintWriter(filename+" for period "+ssss+"__Inventory range "+ssss1+" to"+ssss2+"__Orderupto range "+ssss3+" to "+ssss4+".txt");
             for (int inv = inventory_range_low; inv < inventory_range_high; inv++) {
                 for (int j = order_up_to_range_low; j <  order_up_to_range_high; j++) {
-                    resultt=new double[]{inv-M,j,Z_bigSDouble[p][0][inv][j]};
-                    Solutionn.println(Arrays.toString(resultt).replace("[","").replace("]",""));
+                    resultt=new double[]{inv,j,Z_bigSDouble[p][0][inv][j]};
+                    Solutionn.println(Arrays.toString(resultt));
                 }
             }
             Solutionn.close();
@@ -159,40 +211,30 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
 
     }
-    public static void write_sols_for_Z_bigSDouble_v3(int maxperiod,double alphaval,double lambdaval, int maxdemand,int period,String filename,int inventory_range_low,int inventory_range_high,int order_up_to_range_low,int order_up_to_range_high,double[][][][] Z_bigSDouble,int M, int MM) throws FileNotFoundException {
+    public static void write_sols_for_Z_bigSDouble_v2(int maxperiod,double alphaval,double lambdaval, int maxdemand,int period,String filename,int inventory_range_low,int inventory_range_high,int order_up_to_range_low,int order_up_to_range_high,double[][][][] Z_bigSDouble ) throws FileNotFoundException {
         double[] resultt = new double[3];
         for (int p =0; p <=period; p++) {
             String ssss=String.valueOf(p);
-            String ssss1=String.valueOf(inventory_range_low-M);
-            String ssss2=String.valueOf(inventory_range_high-M);
-            String ssss3=String.valueOf(order_up_to_range_low-MM);
-            String ssss4=String.valueOf(order_up_to_range_high-MM);
+            String ssss1=String.valueOf(inventory_range_low);
+            String ssss2=String.valueOf(inventory_range_high);
+            String ssss3=String.valueOf(order_up_to_range_low);
+            String ssss4=String.valueOf(order_up_to_range_high);
             String maxperiods=String.valueOf(maxperiod);
             String alphavals=String.valueOf(alphaval);
             String lambdavals=String.valueOf(lambdaval);
             String maxdemands=String.valueOf(maxdemand);
-            PrintWriter Solutionn= new PrintWriter("maxper_"+maxperiods+"__maxdem_"+maxdemands+"__alpha_"+alphavals+"__lambda_"+lambdavals+"-"+filename+" for period "+ssss+"__Inventory range "+ssss1+" to"+ssss2+"__Orderupto range "+ssss3+" to "+ssss4+".csv");
-            Solutionn.println("Inventory,Previous_sale,Profit");
-
-          //  for (int inv = -maxdemand*p+M; inv < maxdemand*maxperiod+1+M; inv++) {
-             //   for (int j = 0; j < (p*maxdemand)+1; j++) {
-                  //  if((   (inv<M)    && ((((inv-M)*-1)+j)<=p*maxdemand) )  || (p==0 && inv-M==0 && j==0)  ||  ((p!=0) &&  (inv>=M)   &&  (inv-M+j<=maxperiod*maxdemand) ) ) {
-                      //  resultt = new double[]{inv - M, j , Z_bigSDouble[p][0][inv][j]};
-                       // Solutionn.println(Arrays.toString(resultt).replace("[", "").replace("]", ""));
-                    //}}}
+            PrintWriter Solutionn= new PrintWriter("maxper_"+maxperiods+"__maxdem_"+maxdemands+"__alpha_"+alphavals+"__lambda_"+lambdavals+"-"+filename+" for period "+ssss+"__Inventory range "+ssss1+" to"+ssss2+"__Orderupto range "+ssss3+" to "+ssss4+".txt");
             for (int inv = inventory_range_low; inv < inventory_range_high; inv++) {
-                for (int j = order_up_to_range_low; j < order_up_to_range_high; j++) {
-                    if((   (inv<M)    && ((((inv-M)*-1)+j)<=p*maxdemand) )  || (p==0 && inv-M==0 && j==0)  ||  ((p!=0) &&  (inv>=M)   &&  (inv-M+j<=maxperiod*maxdemand) ) ) {
-                        resultt = new double[]{inv - M, j , Z_bigSDouble[p][0][inv][j]};
-                        Solutionn.println(Arrays.toString(resultt).replace("[", "").replace("]", ""));
-                    }}
+                for (int j = order_up_to_range_low; j <  order_up_to_range_high; j++) {
+                    resultt=new double[]{inv,j,Z_bigSDouble[p][0][inv][j]};
+                    Solutionn.println(Arrays.toString(resultt));
+                }
             }
             Solutionn.close();
         }
 
 
     }
-
 
     public static double[] SimulationMatrix_v3adapted(int period, double[][][][] bigS,double[][][][] bigSC, double OP, double OPC,int m, double alphaSimulation, double lambdaSimulation, int unitCost, int fixedCost, int retailPrice, int returnCredit, double holdingCost, double backorderCost, int salvageValue,int M, int nresult) {
 
@@ -251,7 +293,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
         int[] numberOfOrderC = new int[period];
 
         for (int p = 0; p < period; p++) {
-            D[p] = getPoissonRandom(lambdaSimulation);
+            D[p] = getPoissonRandomweb(lambdaSimulation);
             if (D[p]>m) {
                 D[p]=m;
             }
@@ -577,7 +619,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
         for (int inv = 0; inv < n; inv++) { //Inventory
 
             for (int j = 0; j < sl; j++) { //previous sales
-                double min = 100000000;
+                double min = 100000;
 
                 for (int i = 0; i < s; i++) { //S up to order
                     total2 = 0;
@@ -674,24 +716,24 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
 
                     if ((I[inv] + k) < 0) {            ////BU CASEDE FİXED COST KULLANILMASI GEREKMEZ Mİİ ---------bir noktaya kadar envanter değeri + geri gelen ürün
-                                                        //miktarı toplamı negatifse sipariş verilmedir ve sipariş miktarı I[inv] + k değerinin mutlak değeri kadar olmalıdır.
-                                                        //Satılan ürünler hala gelecek ay geri iade edilebilir bu da hesaba katılmalıdır..
-                                                        //Geri gönderilen ürünlerin parası iade edilmelidir..
+                        //miktarı toplamı negatifse sipariş verilmedir ve sipariş miktarı I[inv] + k değerinin mutlak değeri kadar olmalıdır.
+                        //Satılan ürünler hala gelecek ay geri iade edilebilir bu da hesaba katılmalıdır..
+                        //Geri gönderilen ürünlerin parası iade edilmelidir..
                         ZZEnd[inv][j][k] = (binomialDistProbability[j][k]) *
                                 (((I[inv] + k) * -unitCost)  // sipariş verme ücreti--değeri arttırıyor çünkü gider -------------------fixedcost eklenmemiş??????????
-                                + k * returnCredit           //iade edilen ürünlerin geri ödemesi--değeri arttırıyor çünkü gider
-                                - I[inv] * alpha * (returnCredit - salvageValue) //alpha olasılıkla ürünler gelecek dönem iade edilecek-değeri arttırıyor çünkü salvagedan kar etmek mantkıksız
-                                                                                 //returnCredit ve salvageValue birbirine eşitse direkt 0
-                                + retailPrice * I[inv]);                         //satış karı --değeri azaltıyor çünkü kar...
+                                        + k * returnCredit           //iade edilen ürünlerin geri ödemesi--değeri arttırıyor çünkü gider
+                                        - I[inv] * alpha * (returnCredit - salvageValue) //alpha olasılıkla ürünler gelecek dönem iade edilecek-değeri arttırıyor çünkü salvagedan kar etmek mantkıksız
+                                        //returnCredit ve salvageValue birbirine eşitse direkt 0
+                                        + retailPrice * I[inv]);                         //satış karı --değeri azaltıyor çünkü kar...
 
                     } else if (I[inv] < 0) {           //eğer geri gelen ürünle birlikte 0 değeri geçilmiş(ilk kondisyon karşılanmamış) fakat envanter en başta negatifse, bu dönemde zaten demand
-                                                        //olmadığı için satabileceğimizden(backorder değerinden) fazla ürün geri gelmiştir ki bunlar salvage edilmelidir.
-                                                        //salvage edilmesi gereken miktar I[inv] + k değeri kadardır.
-                                                        //Geri gönderilen ürünlerin parası iade edilmelidir..
+                        //olmadığı için satabileceğimizden(backorder değerinden) fazla ürün geri gelmiştir ki bunlar salvage edilmelidir.
+                        //salvage edilmesi gereken miktar I[inv] + k değeri kadardır.
+                        //Geri gönderilen ürünlerin parası iade edilmelidir..
                         ZZEnd[inv][j][k] = (binomialDistProbability[j][k]) *
                                 (((I[inv] + k) * -salvageValue) //fazla gelen ürün salvage edildi- değeri azaltıyor çünkü kar
                                         + k * returnCredit      //iade edilen ürünlerin geri ödemesi--değeri arttırıyor çünkü gider
-                                - I[inv] * alpha * (returnCredit - salvageValue) //alpha olasılıkla ürünler gelecek dönem iade edilecek-değeri arttırıyor çünkü salvagedan kar etmek mantkıksız
+                                        - I[inv] * alpha * (returnCredit - salvageValue) //alpha olasılıkla ürünler gelecek dönem iade edilecek-değeri arttırıyor çünkü salvagedan kar etmek mantkıksız
                                         + retailPrice * I[inv]);            //satış karı --değeri azaltıyor çünkü kar...
 
                     } else {                           //en başta envanter değeri zaten 0dan yüksek ise bu miktar salvage edilmelidir...
@@ -730,7 +772,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
         return k - 1;
 
     }
-    private static int getPoissonRandomwebf(double mean) {
+    private static int getPoissonRandomweb(double mean) {
         Random r = new Random();
         double L = Math.exp(-mean);
         int k = 0;
