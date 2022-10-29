@@ -46,26 +46,26 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
             double alphaSimulation = 0.5;
 
-            double lambdaSimulation = 4;
+            double lambdaSimulation =4;
 
-            int m = 10; //max demand
+            int m = 25; //max demand
 
 
             //--------------Inventory-----------------------------------------------------------------------------------------------------
-            IntStream streamI = IntStream.range(-(period * m), (period *2*m));
+            IntStream streamI = IntStream.range(-(period * m),((period)*2*m+period*m));
             int M =period * m; //neutralizes negative I
             int[] I = streamI.toArray();
             int n = I.length;
             //-----------------------------------------------------------------------------------------------------------------------------
 
             //--------------Inventory level after ordering---------------------------------------------------------------------------------
-            IntStream streamS = IntStream.range(-((period-1) * m), ((period-1)*m));
+            IntStream streamS = IntStream.range(-((period-1) * m), ((period)*m)+1); //!!!!!!!!!!!!!son sayıdaki bigm bunu 1 arttırınca düzeldi!!!!!!!!!!!!!!!!!!!!!!!!!!
             int MM = (period-1) * m; //neutralizes negative S
             int[] S = streamS.toArray();
             int s = S.length;
             //------------------------------------------------------------------------------------------------------------------------------
 
-            int sl =((period+1) * m)+1; //max # of sales
+            int sl =((period+2) * m)+1; //max # of sales  ////!!!!!bu değer arttırıldığı zaman possible conditionların oluştuğu dosyadaki en altta bulunan bigm ler ortadan kayboldu!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!çünkü binomdistdeki j indexi dolaylı yoldan etkiliyor
 
             double[] poissonDistProbability = new double[m+1];
             poissonDistProbability = poissonDist (lambda, m);  //Max demand gönderiliyor çünkü 0dan bu değere kadar demand gelme olasılıkları hesaplanıp 1D arraye kaydediliyor.
@@ -182,8 +182,8 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
                     //}}}
             for (int inv = inventory_range_low; inv < inventory_range_high; inv++) {
                 for (int j = order_up_to_range_low; j < order_up_to_range_high; j++) {
-                    if((   (inv<M)    && ((((inv-M)*-1)+j)<=p*maxdemand) )  || (p==0 && inv-M==0 && j==0)  ||  ((p!=0) &&  (inv>=M)   &&  (inv-M+j<=maxperiod*maxdemand) ) ) {
-                        resultt = new double[]{inv - M, j , Z_bigSDouble[p][0][inv][j]};
+                    if((   (inv<M)    && ((((inv-M)*-1)+j)<=p*maxdemand) )  || (p==0 && inv-M==0 && j==0)  ||  ((p!=0) &&  (inv>=M)   &&  (inv-M+j<=maxperiod*maxdemand) && j<=p*maxdemand ) ) {
+                        resultt = new double[]{inv - M, j , Z_bigSDouble[p][0][inv][j]*-1};
                         Solutionn.println(Arrays.toString(resultt).replace("[", "").replace("]", ""));
                     }}
             }
@@ -577,7 +577,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
         for (int inv = 0; inv < n; inv++) { //Inventory
 
             for (int j = 0; j < sl; j++) { //previous sales
-                double min = 100000000;
+                double min = 100000;  //100000000 olduğunda sonuçlar yanlış çıkıyor lambda 11 de bile yanlıştı
 
                 for (int i = 0; i < s; i++) { //S up to order
                     total2 = 0;

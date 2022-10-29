@@ -81,7 +81,7 @@ public class withcomment_4 {
 
             double backorderCost = 20;
 
-            int salvageValue = 30;  ///normalde 0 dı 0 ken arrayler repeat edebilirrr!!!!!!!!!!!
+            int salvageValue = 0;  ///normalde 0 dı 0 ken arrayler repeat edebilirrr!!!!!!!!!!!
 
             int fixedCost = 25;
 
@@ -89,11 +89,11 @@ public class withcomment_4 {
 
             int retailPrice = 80; //satış fiyatı
 
-            int period =20; //number of periods starting from 0, period is also used for terminal period  n=5
+            int period =5; //number of periods starting from 0, period is also used for terminal period  n=5
 
             double alpha = 0.5; //return rate
 
-            double lambda = 4; //demand rate
+            double lambda = 12; //demand rate
 
             double alphaC = 0; //naive
 
@@ -101,9 +101,9 @@ public class withcomment_4 {
 
             double alphaSimulation = 0.5;
 
-            double lambdaSimulation = 4;
+            double lambdaSimulation = 12;
 
-            int m = 8; //max demand
+            int m = 20; //max demand
 
 
             //--------------Inventory-----------------------------------------------------------------------------------------------------
