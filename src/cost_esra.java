@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 
-public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
+public class cost_esra {
 
     public static void main(String[] args) throws FileNotFoundException {
         Instant inst1 = Instant.now();
@@ -48,7 +48,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
             double lambdaSimulation =4;
 
-            int m = 12; //max demand
+            int m = 25; //max demand
 
 
             //--------------Inventory-----------------------------------------------------------------------------------------------------
@@ -362,10 +362,10 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
             if (I[period] + R[period] < 0) {
                 totalEndingInventoryCost = (I[period] + R[period]) * -(unitCost)
-                        - I[period] * alphaSimulation * (returnCredit - salvageValue);
+                        - I[period] * alphaSimulation * ( - salvageValue);
             } else if (I[period] < 0) {
                 totalEndingInventoryCost = (I[period] + R[period]) * -salvageValue
-                        - I[period] * alphaSimulation * (returnCredit - salvageValue);
+                        - I[period] * alphaSimulation * ( - salvageValue);
             } else {
                 totalEndingInventoryCost = (I[period] + R[period]) * -salvageValue;
             }
@@ -539,9 +539,9 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
         double OPRC = OPC;
 
         double totalCost = procurementCost + totalOrderingCost + totalHoldingCost + totalBackorderCost
-                + totalEndingInventoryCost + returnCost;
+                + totalEndingInventoryCost ;
 
-        double Profit = Revenue - totalCost;
+        double Profit = totalCost;
 
         double totalCostC = procurementCostC + totalOrderingCostC + totalHoldingCostC + totalBackorderCostC
                 + totalEndingInventoryCostC + returnCostC;
@@ -585,9 +585,9 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
                         total = 0;
                         for (int k = 0; k <= j; k++) { //return
                             if (I[inv] < S[i]) {
-                                z_line = (binomialDistProbability[j][k]) * (poissonDistProbability[jj])  * ((S[i]- I[inv]) * unitCost + fixedCost + J[i][j] + k * returnCredit + ZN[S[i] + k - jj + M][Math.min(          (Math.max(0, I[inv]) + Math.max(0, (S[i] - I[inv]))+ k)    ,        (jj - (Math.min(0, I[inv]))))]- (Math.min(         (Math.max(0, I[inv]) + Math.max(0, (S[i] - I[inv])) + k)         , (jj - (Math.min(0, I[inv]))))) * retailPrice); //JJ 0 ve i 32 DEYKEN İNDEX HATASI  !!!!!!!!!!!!!!!!!Burayı kesinlikle sor
+                                z_line = (binomialDistProbability[j][k]) * (poissonDistProbability[jj])  * ((S[i]- I[inv]) * unitCost + fixedCost + J[i][j] + ZN[S[i] + k - jj + M][Math.min(          (Math.max(0, I[inv]) + Math.max(0, (S[i] - I[inv]))+ k)    ,        (jj - (Math.min(0, I[inv]))))]); //JJ 0 ve i 32 DEYKEN İNDEX HATASI  !!!!!!!!!!!!!!!!!Burayı kesinlikle sor
                             } else if (I[inv] ==S[i]) {
-                                z_line =(binomialDistProbability[j][k]) * (poissonDistProbability[jj]) * ( J[i][j] + k * returnCredit + ZN[S[i] + k - jj + M][Math.min((Math.max(0, I[inv]) + Math.max(0, (S[i] - I[inv])) + k), (jj - (Math.min(0, I[inv]))))] - (Math.min((Math.max(0, I[inv]) + Math.max(0, (S[i] - I[inv])) + k), (jj - (Math.min(0, I[inv]))))) * retailPrice);
+                                z_line =(binomialDistProbability[j][k]) * (poissonDistProbability[jj]) * ( J[i][j]  + ZN[S[i] + k - jj + M][Math.min((Math.max(0, I[inv]) + Math.max(0, (S[i] - I[inv])) + k), (jj - (Math.min(0, I[inv]))))]);
                             } else {
                                 z_line = BigM;
                             }
@@ -673,16 +673,16 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
                 for (int k = 0; k <= j; k++) {  //                     returnleri temsil ediyo-------------------bu dönem bu kadar return gelme durumu
 
 
-                    if ((I[inv] + k) < 0) {            ////---------bir noktaya kadar envanter değeri + geri gelen ürün
+                    if ((I[inv] + k) < 0) {            ////BU CASEDE FİXED COST KULLANILMASI GEREKMEZ Mİİ ---------bir noktaya kadar envanter değeri + geri gelen ürün
                         //miktarı toplamı negatifse sipariş verilmedir ve sipariş miktarı I[inv] + k değerinin mutlak değeri kadar olmalıdır.
                         //Satılan ürünler hala gelecek ay geri iade edilebilir bu da hesaba katılmalıdır..
                         //Geri gönderilen ürünlerin parası iade edilmelidir..
                         ZZEnd[inv][j][k] = (binomialDistProbability[j][k]) *
-                                (((I[inv] + k) * -unitCost)  // sipariş verme ücreti--değeri arttırıyor çünkü gider -------------------
-                                        + k * returnCredit           //iade edilen ürünlerin geri ödemesi--değeri arttırıyor çünkü gider
-                                        - I[inv] * alpha * (returnCredit - salvageValue) //alpha olasılıkla ürünler gelecek dönem iade edilecek-değeri arttırıyor çünkü salvagedan kar etmek mantkıksız
+                                (((I[inv] + k) * -unitCost)  // sipariş verme ücreti--değeri arttırıyor çünkü gider -------------------fixedcost eklenmemiş??????????
+                                        //iade edilen ürünlerin geri ödemesi--değeri arttırıyor çünkü gider
+                                        - I[inv] * alpha * ( - salvageValue) //alpha olasılıkla ürünler gelecek dönem iade edilecek-değeri arttırıyor çünkü salvagedan kar etmek mantkıksız
                                         //returnCredit ve salvageValue birbirine eşitse direkt 0
-                                        + retailPrice * I[inv]);                         //satış karı --değeri azaltıyor çünkü kar...
+                                );                         //satış karı --değeri azaltıyor çünkü kar...
 
                     } else if (I[inv] < 0) {           //eğer geri gelen ürünle birlikte 0 değeri geçilmiş(ilk kondisyon karşılanmamış) fakat envanter en başta negatifse, bu dönemde zaten demand
                         //olmadığı için satabileceğimizden(backorder değerinden) fazla ürün geri gelmiştir ki bunlar salvage edilmelidir.
@@ -690,17 +690,15 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
                         //Geri gönderilen ürünlerin parası iade edilmelidir..
                         ZZEnd[inv][j][k] = (binomialDistProbability[j][k]) *
                                 (((I[inv] + k) * -salvageValue) //fazla gelen ürün salvage edildi- değeri azaltıyor çünkü kar
-                                        + k * returnCredit      //iade edilen ürünlerin geri ödemesi--değeri arttırıyor çünkü gider
-                                        - I[inv] * alpha * (returnCredit - salvageValue) //alpha olasılıkla ürünler gelecek dönem iade edilecek-değeri arttırıyor çünkü salvagedan kar etmek mantkıksız
-                                        + retailPrice * I[inv]);            //satış karı --değeri azaltıyor çünkü kar...
+                                        //iade edilen ürünlerin geri ödemesi--değeri arttırıyor çünkü gider
+                                        - I[inv] * alpha * ( - salvageValue) //alpha olasılıkla ürünler gelecek dönem iade edilecek-değeri arttırıyor çünkü salvagedan kar etmek mantkıksız
+                                );            //satış karı --değeri azaltıyor çünkü kar...
 
                     } else {                           //en başta envanter değeri zaten 0dan yüksek ise bu miktar salvage edilmelidir...
                         ZZEnd[inv][j][k] = (binomialDistProbability[j][k]) *
                                 (((I[inv] + k) * -salvageValue) //fazla ürün salvage edildi- değeri azaltıyor çünkü kar
-                                        + k * returnCredit);    //iade edilen ürünlerin geri ödemesi--değeri arttırıyor çünkü gider
-
+                                );    //iade edilen ürünlerin geri ödemesi--değeri arttırıyor çünkü gider
                     }
-                    //if(j>25){System.out.println(ZZEnd[inv][j][k]);}
                 }
 
             }
@@ -760,24 +758,21 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
     }
 
-    static double nCr(int n, int r) {
+    static int nCr(int n, int k) {
 
-        if (r > n / 2)
+        if (k > n / 2)
 
-            r = n - r;
+            k = n - k;
 
-        double answer = 1;
+        int answer = 1;
 
-        for (int i = 1; i <= r; i++) {
+        for (int i = 1; i <= k; i++) {
 
-            answer *= (n - r + i);
+            answer *= (n - k + i);
 
             answer /= i;
 
         }
-        if(answer<0){System.out.println(n);
-            System.out.println(r);}
-
 
         return answer;
 
@@ -787,15 +782,17 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
         double[][] P = new double[sl][sl];
 
+
+
         for (int j = 0; j <sl ; j++) {
-            double summ=0;
             for (int k = 0; k <=j ; k++) {
                 P[j][k]=nCr(j, k) * (double) Math.pow(alpha, k) * (double) Math.pow(1 - alpha, j - k);
-                summ+=P[j][k];
             }
-            System.out.println(summ);
-            }
+        }
+
+
         return P;
+
     }
 
     public static double[] poissonDist(double lambda,int m) {

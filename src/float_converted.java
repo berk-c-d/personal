@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 
-public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
+public class float_converted {
 
     public static void main(String[] args) throws FileNotFoundException {
         Instant inst1 = Instant.now();
@@ -48,7 +48,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
             double lambdaSimulation =4;
 
-            int m = 12; //max demand
+            int m = 25; //max demand
 
 
             //--------------Inventory-----------------------------------------------------------------------------------------------------
@@ -760,24 +760,21 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
     }
 
-    static double nCr(int n, int r) {
+    static int nCr(int n, int k) {
 
-        if (r > n / 2)
+        if (k > n / 2)
 
-            r = n - r;
+            k = n - k;
 
-        double answer = 1;
+        int answer = 1;
 
-        for (int i = 1; i <= r; i++) {
+        for (int i = 1; i <= k; i++) {
 
-            answer *= (n - r + i);
+            answer *= (n - k + i);
 
             answer /= i;
 
         }
-        if(answer<0){System.out.println(n);
-            System.out.println(r);}
-
 
         return answer;
 
@@ -787,15 +784,39 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
         double[][] P = new double[sl][sl];
 
+
+
         for (int j = 0; j <sl ; j++) {
-            double summ=0;
             for (int k = 0; k <=j ; k++) {
-                P[j][k]=nCr(j, k) * (double) Math.pow(alpha, k) * (double) Math.pow(1 - alpha, j - k);
-                summ+=P[j][k];
+                if(nCr(j, k) * (double) Math.pow(alpha, k) * (double) Math.pow(1 - alpha, j - k)<0)
+
+                {P[j][k]=0;}
+
+                else{P[j][k]=nCr(j, k) * (double) Math.pow(alpha, k) * (double) Math.pow(1 - alpha, j - k);}
+
+
             }
-            System.out.println(summ);
-            }
+        }
+
+
         return P;
+
+    }
+    public static float[][] binomialDist_v2(int sl, double alpha) {
+
+        float[][] P = new float[sl][sl];
+
+
+
+        for (int j = 0; j <sl ; j++) {
+            for (int k = 0; k <=j ; k++) {
+                P[j][k]=nCr(j, k) * (float) Math.pow(alpha, k) * (float) Math.pow(1 - alpha, j - k);
+            }
+        }
+
+
+        return P;
+
     }
 
     public static double[] poissonDist(double lambda,int m) {

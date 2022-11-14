@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 
-public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
+public class temporj {
 
     public static void main(String[] args) throws FileNotFoundException {
         Instant inst1 = Instant.now();
@@ -48,7 +48,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
             double lambdaSimulation =4;
 
-            int m = 12; //max demand
+            int m = 25; //max demand
 
 
             //--------------Inventory-----------------------------------------------------------------------------------------------------
@@ -673,12 +673,12 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
                 for (int k = 0; k <= j; k++) {  //                     returnleri temsil ediyo-------------------bu dönem bu kadar return gelme durumu
 
 
-                    if ((I[inv] + k) < 0) {            ////---------bir noktaya kadar envanter değeri + geri gelen ürün
+                    if ((I[inv] + k) < 0) {            ////BU CASEDE FİXED COST KULLANILMASI GEREKMEZ Mİİ ---------bir noktaya kadar envanter değeri + geri gelen ürün
                         //miktarı toplamı negatifse sipariş verilmedir ve sipariş miktarı I[inv] + k değerinin mutlak değeri kadar olmalıdır.
                         //Satılan ürünler hala gelecek ay geri iade edilebilir bu da hesaba katılmalıdır..
                         //Geri gönderilen ürünlerin parası iade edilmelidir..
                         ZZEnd[inv][j][k] = (binomialDistProbability[j][k]) *
-                                (((I[inv] + k) * -unitCost)  // sipariş verme ücreti--değeri arttırıyor çünkü gider -------------------
+                                (((I[inv] + k) * -unitCost)  // sipariş verme ücreti--değeri arttırıyor çünkü gider -------------------fixedcost eklenmemiş??????????
                                         + k * returnCredit           //iade edilen ürünlerin geri ödemesi--değeri arttırıyor çünkü gider
                                         - I[inv] * alpha * (returnCredit - salvageValue) //alpha olasılıkla ürünler gelecek dönem iade edilecek-değeri arttırıyor çünkü salvagedan kar etmek mantkıksız
                                         //returnCredit ve salvageValue birbirine eşitse direkt 0
@@ -698,9 +698,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
                         ZZEnd[inv][j][k] = (binomialDistProbability[j][k]) *
                                 (((I[inv] + k) * -salvageValue) //fazla ürün salvage edildi- değeri azaltıyor çünkü kar
                                         + k * returnCredit);    //iade edilen ürünlerin geri ödemesi--değeri arttırıyor çünkü gider
-
                     }
-                    //if(j>25){System.out.println(ZZEnd[inv][j][k]);}
                 }
 
             }
@@ -760,24 +758,21 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
     }
 
-    static double nCr(int n, int r) {
+    static int nCr(int n, int k) {
 
-        if (r > n / 2)
+        if (k > n / 2)
 
-            r = n - r;
+            k = n - k;
 
-        double answer = 1;
+        int answer = 1;
 
-        for (int i = 1; i <= r; i++) {
+        for (int i = 1; i <= k; i++) {
 
-            answer *= (n - r + i);
+            answer *= (n - k + i);
 
             answer /= i;
 
         }
-        if(answer<0){System.out.println(n);
-            System.out.println(r);}
-
 
         return answer;
 
@@ -787,15 +782,17 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
         double[][] P = new double[sl][sl];
 
+
+
         for (int j = 0; j <sl ; j++) {
-            double summ=0;
             for (int k = 0; k <=j ; k++) {
                 P[j][k]=nCr(j, k) * (double) Math.pow(alpha, k) * (double) Math.pow(1 - alpha, j - k);
-                summ+=P[j][k];
             }
-            System.out.println(summ);
-            }
+        }
+
+
         return P;
+
     }
 
     public static double[] poissonDist(double lambda,int m) {
