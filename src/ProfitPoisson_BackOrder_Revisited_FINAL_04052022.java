@@ -48,7 +48,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
 
             double lambdaSimulation =4;
 
-            int m = 12; //max demand
+            int m = 10; //max demand
 
 
             //--------------Inventory-----------------------------------------------------------------------------------------------------
@@ -88,10 +88,11 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
             }
 
             //write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m,period,"Solution",M,M+m,0,m,Z_bigSDouble);
-            write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"ALL_COND_Solution",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
+            //write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"ALL_COND_Solution",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
             //write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"Solution",0,s+m,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble);
             //write_sols_for_Z_bigSDouble_v3(period,alpha,lambda,m, period,"ONLY_POSS_COND_Solution",0,s+m,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
-            write_sols_for_Z_bigSDouble_v3(period,alpha,lambda,m, period,"ONLY_POSS_COND_Solution",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
+            //write_sols_for_Z_bigSDouble_v3(period,alpha,lambda,m, period,"ONLY_POSS_COND_Solution",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
+            write_sols_for_Z_bigSDouble_v4(period,alpha,lambda,m, period,"ONLY_POSS_hold_"+holdingCost+"backorder_"+backorderCost+"fixed_"+fixedCost,0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
             //-------------------------------------------------NAIVE--------------------------------------------------------------------------------
 
 
@@ -184,6 +185,45 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
                 for (int j = order_up_to_range_low; j < order_up_to_range_high; j++) {
                     if((   (inv<M)    && ((((inv-M)*-1)+j)<=p*maxdemand) )  || (p==0 && inv-M==0 && j==0)  ||  ((p!=0) &&  (inv>=M)   &&  (inv-M+j<=maxperiod*maxdemand) && j<=p*maxdemand ) ) {
                         resultt = new double[]{inv - M, j , Z_bigSDouble[p][0][inv][j]*-1};
+                        Solutionn.println(Arrays.toString(resultt).replace("[", "").replace("]", ""));
+                    }}
+            }
+            Solutionn.close();
+        }
+
+
+    }
+    public static void write_sols_for_Z_bigSDouble_v4(int maxperiod,double alphaval,double lambdaval, int maxdemand,int period,String filename,int inventory_range_low,int inventory_range_high,int order_up_to_range_low,int order_up_to_range_high,double[][][][] Z_bigSDouble,int M, int MM) throws FileNotFoundException {
+        double[] resultt = new double[3];
+        for (int p =0; p <=period; p++) {
+            String ssss=String.valueOf(p);
+            String ssss1=String.valueOf(inventory_range_low-M);
+            String ssss2=String.valueOf(inventory_range_high-M);
+            String ssss3=String.valueOf(order_up_to_range_low-MM);
+            String ssss4=String.valueOf(order_up_to_range_high-MM);
+            String maxperiods=String.valueOf(maxperiod);
+            String alphavals=String.valueOf(alphaval);
+            String lambdavals=String.valueOf(lambdaval);
+            String maxdemands=String.valueOf(maxdemand);
+            PrintWriter Solutionn= new PrintWriter("maxper_"+maxperiods+"__maxdem_"+maxdemands+"__alpha_"+alphavals+"__lambda_"+lambdavals+"-"+filename+" for period "+ssss+"__Inventory range "+ssss1+" to"+ssss2+"__Orderupto range "+ssss3+" to "+ssss4+".csv");
+            Solutionn.println("Inventory,Previous_sale,Profit,Break_Point,Break_Point_pos,Inv_brk_pos,Inv_brk_neg");
+            double break_p=0;
+            double break_p_pos;
+            double inv_min_brk_pos;
+            double inv_min_brk_neg;
+            for (int inv = inventory_range_low; inv < inventory_range_high; inv++) {
+                for (int j = order_up_to_range_low; j < order_up_to_range_high; j++) {
+                    if((   (inv<M)    && ((((inv-M)*-1)+j)<=p*maxdemand) )  || (p==0 && inv-M==0 && j==0)  ||  ((p!=0) &&  (inv>=M)   &&  (inv-M+j<=maxperiod*maxdemand) && j<=p*maxdemand ) ) {
+                        break_p=lambdaval*(maxperiod-p)-alphaval*j;
+                        if(break_p<=0){break_p_pos=0;}
+                        else{break_p_pos=break_p;}
+
+                        if(inv-M-break_p_pos>=0){inv_min_brk_pos=inv-M-break_p_pos;
+                                                inv_min_brk_neg=0;}
+                        else{inv_min_brk_neg=inv-M-break_p_pos;
+                            inv_min_brk_pos=0;
+                        }
+                        resultt = new double[]{inv - M, j , Z_bigSDouble[p][0][inv][j]*-1,break_p,break_p_pos,inv_min_brk_pos,inv_min_brk_neg};
                         Solutionn.println(Arrays.toString(resultt).replace("[", "").replace("]", ""));
                     }}
             }
@@ -793,7 +833,7 @@ public class ProfitPoisson_BackOrder_Revisited_FINAL_04052022 {
                 P[j][k]=nCr(j, k) * (double) Math.pow(alpha, k) * (double) Math.pow(1 - alpha, j - k);
                 summ+=P[j][k];
             }
-            System.out.println(summ);
+            //System.out.println(summ);
             }
         return P;
     }

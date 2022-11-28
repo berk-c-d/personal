@@ -19,16 +19,19 @@ public class cost_hoca {
 
             System.out.println(" Experiment: " + i);
 
-            //Base case scenario parameter set::
+            //::
+            double holdingCost = 2;
+            double backorderCost = 20;
+            int fixedCost = 25;
+            double alpha_all=0.5;
+
+            double lambda_all=4;
+            int m = 10; //max demand
+
+
             int unitCost = 40;
 
-            double holdingCost = 2;
-
-            double backorderCost = 20;
-
             int salvageValue = 0;  ///normalde 0 dı 0 ken arrayler repeat edebilirrr!!!!!!!!!!!
-
-            int fixedCost = 25;
 
             int returnCredit = 80; //geri dönen ürün fiyatı
 
@@ -36,19 +39,19 @@ public class cost_hoca {
 
             int period =5; //number of periods starting from 0, period is also used for terminal period  n=5
 
-            double alpha = 0.5; //return rate
+            double alpha = alpha_all; //return rate
 
-            double lambda = 4; //demand rate
+            double lambda = lambda_all; //demand rate
 
             double alphaC = 0; //naive
 
             double lambdaC = 2;  //naive
 
-            double alphaSimulation = 0.5;
+            double alphaSimulation = alpha_all;
 
-            double lambdaSimulation =4;
+            double lambdaSimulation =lambda_all;
 
-            int m = 25; //max demand
+
 
 
             //--------------Inventory-----------------------------------------------------------------------------------------------------
@@ -91,7 +94,8 @@ public class cost_hoca {
             write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"ALL_COND_Solution",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
             //write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"Solution",0,s+m,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble);
             //write_sols_for_Z_bigSDouble_v3(period,alpha,lambda,m, period,"ONLY_POSS_COND_Solution",0,s+m,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
-            write_sols_for_Z_bigSDouble_v3(period,alpha,lambda,m, period,"ONLY_POSS_COND_Solution_Cost_Enishoca",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
+            //write_sols_for_Z_bigSDouble_v3(period,alpha,lambda,m, period,"ONLY_POSS_COND_Solution_Cost_Enishoca",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
+            write_sols_for_Z_bigSDouble_v4(period,alpha,lambda,m, period,"POS_COST_hold_"+holdingCost+"backo_"+backorderCost+"fix_"+fixedCost,0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
             //-------------------------------------------------NAIVE--------------------------------------------------------------------------------
 
 
@@ -172,7 +176,7 @@ public class cost_hoca {
             String lambdavals=String.valueOf(lambdaval);
             String maxdemands=String.valueOf(maxdemand);
             PrintWriter Solutionn= new PrintWriter("maxper_"+maxperiods+"__maxdem_"+maxdemands+"__alpha_"+alphavals+"__lambda_"+lambdavals+"-"+filename+" for period "+ssss+"__Inventory range "+ssss1+" to"+ssss2+"__Orderupto range "+ssss3+" to "+ssss4+".csv");
-            Solutionn.println("Inventory,Previous_sale,Profit");
+            Solutionn.println("Inventory,Previous_sale,Cost");
 
             //  for (int inv = -maxdemand*p+M; inv < maxdemand*maxperiod+1+M; inv++) {
             //   for (int j = 0; j < (p*maxdemand)+1; j++) {
@@ -192,7 +196,45 @@ public class cost_hoca {
 
 
     }
+    public static void write_sols_for_Z_bigSDouble_v4(int maxperiod,double alphaval,double lambdaval, int maxdemand,int period,String filename,int inventory_range_low,int inventory_range_high,int order_up_to_range_low,int order_up_to_range_high,double[][][][] Z_bigSDouble,int M, int MM) throws FileNotFoundException {
+        double[] resultt = new double[3];
+        for (int p =0; p <=period; p++) {
+            String ssss=String.valueOf(p);
+            String ssss1=String.valueOf(inventory_range_low-M);
+            String ssss2=String.valueOf(inventory_range_high-M);
+            String ssss3=String.valueOf(order_up_to_range_low-MM);
+            String ssss4=String.valueOf(order_up_to_range_high-MM);
+            String maxperiods=String.valueOf(maxperiod);
+            String alphavals=String.valueOf(alphaval);
+            String lambdavals=String.valueOf(lambdaval);
+            String maxdemands=String.valueOf(maxdemand);
+            PrintWriter Solutionn= new PrintWriter("maxper_"+maxperiods+"_maxdem_"+maxdemands+"_alpha_"+alphavals+"_lambda_"+lambdavals+"-"+filename+"period "+ssss+"__Inventory_"+ssss1+"to"+ssss2+"_prevs_"+ssss3+" to "+ssss4+".csv");
+            Solutionn.println("Inventory,Previous_sale,Cost,Break_Point,Break_Point_pos,Inv_brk_pos,Inv_brk_neg");
+            double break_p=0;
+            double break_p_pos;
+            double inv_min_brk_pos;
+            double inv_min_brk_neg;
+            for (int inv = inventory_range_low; inv < inventory_range_high; inv++) {
+                for (int j = order_up_to_range_low; j < order_up_to_range_high; j++) {
+                    if((   (inv<M)    && ((((inv-M)*-1)+j)<=p*maxdemand) )  || (p==0 && inv-M==0 && j==0)  ||  ((p!=0) &&  (inv>=M)   &&  (inv-M+j<=maxperiod*maxdemand) && j<=p*maxdemand ) ) {
+                        break_p=lambdaval*(maxperiod-p)-alphaval*j;
+                        if(break_p<=0){break_p_pos=0;}
+                        else{break_p_pos=break_p;}
 
+                        if(inv-M-break_p_pos>=0){inv_min_brk_pos=inv-M-break_p_pos;
+                            inv_min_brk_neg=0;}
+                        else{inv_min_brk_neg=inv-M-break_p_pos;
+                            inv_min_brk_pos=0;
+                        }
+                        resultt = new double[]{inv - M, j , Z_bigSDouble[p][0][inv][j],break_p,break_p_pos,inv_min_brk_pos,inv_min_brk_neg};
+                        Solutionn.println(Arrays.toString(resultt).replace("[", "").replace("]", ""));
+                    }}
+            }
+            Solutionn.close();
+        }
+
+
+    }
 
     public static double[] SimulationMatrix_v3adapted(int period, double[][][][] bigS,double[][][][] bigSC, double OP, double OPC,int m, double alphaSimulation, double lambdaSimulation, int unitCost, int fixedCost, int retailPrice, int returnCredit, double holdingCost, double backorderCost, int salvageValue,int M, int nresult) {
 
