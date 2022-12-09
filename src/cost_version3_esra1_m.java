@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 
 
-public class ProfitPoisson_Mars_Backorder_Costtogo_22112022_2 {
+public class cost_version3_esra1_m {
 
     public static void main(String[] args) throws FileNotFoundException {
         Instant inst1 = Instant.now();
@@ -20,127 +20,6 @@ public class ProfitPoisson_Mars_Backorder_Costtogo_22112022_2 {
         int j = 0;
         int pp = 0;
 
-        //Case 13
-        /*
-        int unitCost = 40;
-
-        double holdingCost = 2;
-
-        double backorderCost = 20;
-
-        int salvageValue = 0;
-
-        int fixedCost = 100;
-
-        int returnCredit = 80;
-
-        int retailPrice = 80;
-
-        double alpha = 0; //return rate
-
-        double lambda = 8; //demand rate
-
-        double alphaSimulation = 0;
-
-        double lambdaSimulation = 8;
-
-        int m = 25; //max demand
-
-        B0[0]=0;
-        B0[1]=148.6444304;
-        B0[2]=112.9454238;
-        B0[3]=88.9511673;
-        B0[4]=68.85205404;
-
-
-        B1[0]=0;
-        B1[1]=0.107622378;
-        B1[2]=0.046348741;
-        B1[3]=-0.032463973;
-        B1[4]=-0.042103092;
-
-
-        B2[0]=0;
-        B2[1]=-44.10705078;
-        B2[2]=-43.25764641;
-        B2[3]=-42.35995381;
-        B2[4]=-41.69997131;
-
-
-        B3[0]=0;
-        B3[1]=7.028624281;
-        B3[2]=4.801353261;
-        B3[3]=2.719262727;
-        B3[4]=0.857840153;
-        */
-        //Case 5
-        /*
-        int unitCost = 40;
-
-        double holdingCost = 2;
-
-        double backorderCost = 50;
-
-        int salvageValue = 0;
-
-        int fixedCost = 40;
-
-        int returnCredit = 80;
-
-        int retailPrice = 80;
-
-        double alpha = 0.4; //return rate
-
-        double lambda = 8; //demand rate
-
-        double alphaSimulation = 0.4;
-
-        double lambdaSimulation = 8;
-
-        int m = 25; //max demand
-
-        B0[0]=0;
-        B0[1]=1069.952842
-        ;
-        B0[2]=718.3519362
-        ;
-        B0[3]=424.0374902
-        ;
-        B0[4]=254.869206
-        ;
-
-
-        B1[0]=0;
-        B1[1]=31.19591776
-        ;
-        B1[2]=32.90340574
-        ;
-        B1[3]=-33.65209467
-        ;
-        B1[4]=-30.66594559
-        ;
-
-
-        B2[0]=0;
-        B2[1]=-36.31921201
-        ;
-        B2[2]=-49.59493151
-        ;
-        B2[3]=-62.82650849
-        ;
-        B2[4]=-70.19184136
-        ;
-
-
-        B3[0]=0;
-        B3[1]=9.697856194
-        ;
-        B3[2]=7.64756832
-        ;
-        B3[3]=5.153235705
-        ;
-        B3[4]=2.890330656
-        ;*/
 
         //Base Case
         int unitCost = 40;
@@ -167,48 +46,51 @@ public class ProfitPoisson_Mars_Backorder_Costtogo_22112022_2 {
 
         int m = 10; //max demand
 
+        //Intercept
         B0[0]=0;
-        B0[1]=654.6375471
+        B0[1]=643.800653902418
         ;
-        B0[2]=441.0474275
+        B0[2]=440.40165902393
         ;
-        B0[3]=271.6635093
+        B0[3]=270.931722295635
         ;
-        B0[4]=152.3724397
+        B0[4]=145.461518383893
         ;
 
-
+        //B1_Previous_sale
         B1[0]=0;
-        B1[1]=38.5780172
+        B1[1]=42.6431417173849
         ;
-        B1[2]=41.39909781
+        B1[2]=42.1093295446437
         ;
-        B1[3]=42.41620557
+        B1[3]=42.1093295446437
         ;
-        B1[4]=38.98082223
+        B1[4]=40.3002076368292
         ;
 
-
+        //B2_Inv_min_brk_pos
         B2[0]=0;
-        B2[1]=-33.64375442
+        B2[1]=1.4239134152982
         ;
-        B2[2]=-49.81617974
+        B2[2]=0.472005889651649
         ;
-        B2[3]=-64.03992307
+        B2[3]=-0.260388064701157
         ;
-        B2[4]=-71.38542294
+        B2[4]=0.539082572245109
         ;
 
 
+        //B3_Prev_mult_Inv_min_brk_neg
         B3[0]=0;
-        B3[1]=10.95936749
+        B3[1]=-37.5725734746556
         ;
-        B3[2]=8.73424693
+        B3[2]=-51.5009157588997
         ;
-        B3[3]=5.486519057
+        B3[3]=-62.9101891728928
         ;
-        B3[4]=3.060283007
+        B3[4]=-74.9655721635784
         ;
+
 
         //--------------Inventory level after ordering---------------------------------------------------------------------------------
         IntStream streamS = IntStream.range(-((period-1) * m), ((period)*m)+1);;
@@ -432,7 +314,7 @@ public class ProfitPoisson_Mars_Backorder_Costtogo_22112022_2 {
                     double inv_min_brk_point=inventory-break_point_pos;
                     double inv_min_brk_point_pos=Math.max(0,inv_min_brk_point);
                     double inv_min_brk_point_neg=Math.min(0,inv_min_brk_point);
-                    double reg_result=B0[pp+1] +B1[pp+1]*prev_sale +B2[pp+1]*inv_min_brk_point_neg +B3[pp+1]*inv_min_brk_point_pos;
+                    double reg_result=B0[pp+1] +B1[pp+1]*prev_sale +B2[pp+1]*inv_min_brk_point_pos +B3[pp+1]*inv_min_brk_point_neg*prev_sale;
                     //System.out.println("pp+1: "+(pp+1)+" Inventory: "+inventory+" prev_sale: "+prev_sale+" break_point_pos: "+break_point_pos+" i_min_k_neg: "+inv_min_brk_point_neg+" i_min_k_pos: "+inv_min_brk_point_pos+" reg_result: "+reg_result);
 
 
@@ -444,17 +326,17 @@ public class ProfitPoisson_Mars_Backorder_Costtogo_22112022_2 {
 
 
 
-                                //+ B1[pp+1]*Math.min(Math.max(0, inv) + Math.max(0, (S[i] - inv)) + k, jj - Math.min(0, inv))
-                                //+ B2[pp+1]*Math.min(0,(S[i] + k - jj-Math.max(0,(lambda*(period-pp)-alpha*Math.min(Math.max(0, inv) + Math.max(0, (S[i] - inv)) + k, jj - Math.min(0, inv))))))
-                                //+ B3[pp+1]*Math.max(0,(S[i] + k - jj-Math.max(0,(lambda*(period-pp)-alpha*Math.min(Math.max(0, inv) + Math.max(0, (S[i] - inv)) + k, jj - Math.min(0, inv)))))));
+                        //+ B1[pp+1]*Math.min(Math.max(0, inv) + Math.max(0, (S[i] - inv)) + k, jj - Math.min(0, inv))
+                        //+ B2[pp+1]*Math.min(0,(S[i] + k - jj-Math.max(0,(lambda*(period-pp)-alpha*Math.min(Math.max(0, inv) + Math.max(0, (S[i] - inv)) + k, jj - Math.min(0, inv))))))
+                        //+ B3[pp+1]*Math.max(0,(S[i] + k - jj-Math.max(0,(lambda*(period-pp)-alpha*Math.min(Math.max(0, inv) + Math.max(0, (S[i] - inv)) + k, jj - Math.min(0, inv)))))));
                     } else if (inv ==S[i]) {
                         z_line = (binomialDistProbability[j][k]) * (poissonDistProbability[jj]) *(Math.max(0,(S[i] + k - jj))* holdingCost
                                 + Math.max(0,(jj - S[i]  - k))* backorderCost + k * returnCredit
                                 +reg_result);
 
-                                //+ B1[pp+1]*Math.min(Math.max(0, inv) + Math.max(0, (S[i] - inv)) + k, jj - Math.min(0, inv))
-                                //+ B2[pp+1]*Math.min(0,(S[i] + k - jj-Math.max(0,(lambda*(period-pp)-alpha*Math.min(Math.max(0, inv) + Math.max(0, (S[i] - inv)) + k, jj - Math.min(0, inv))))))
-                                //+ B3[pp+1]*Math.max(0,(S[i] + k - jj-Math.max(0,(lambda*(period-pp)-alpha*Math.min(Math.max(0, inv) + Math.max(0, (S[i] - inv)) + k, jj - Math.min(0, inv)))))));
+                        //+ B1[pp+1]*Math.min(Math.max(0, inv) + Math.max(0, (S[i] - inv)) + k, jj - Math.min(0, inv))
+                        //+ B2[pp+1]*Math.min(0,(S[i] + k - jj-Math.max(0,(lambda*(period-pp)-alpha*Math.min(Math.max(0, inv) + Math.max(0, (S[i] - inv)) + k, jj - Math.min(0, inv))))))
+                        //+ B3[pp+1]*Math.max(0,(S[i] + k - jj-Math.max(0,(lambda*(period-pp)-alpha*Math.min(Math.max(0, inv) + Math.max(0, (S[i] - inv)) + k, jj - Math.min(0, inv)))))));
                     } else {
                         z_line = BigM;
                     }
@@ -551,7 +433,7 @@ public class ProfitPoisson_Mars_Backorder_Costtogo_22112022_2 {
                 double inv_min_brk_point=inventory-break_point_pos;
                 double inv_min_brk_point_pos=Math.max(0,inv_min_brk_point);
                 double inv_min_brk_point_neg=Math.min(0,inv_min_brk_point);
-                double reg_result=B0[1] +B1[1]*prev_sale +B2[1]*inv_min_brk_point_neg +B3[1]*inv_min_brk_point_pos;
+                double reg_result=B0[1] +B1[1]*prev_sale +B2[1]*inv_min_brk_point_pos +B3[1]*inv_min_brk_point_neg*prev_sale;
                 //System.out.println("Inventory: "+inventory+" prev_sale: "+prev_sale+" break_point_pos: "+break_point_pos+" i_min_k_neg: "+inv_min_brk_point_neg+" i_min_k_pos: "+inv_min_brk_point_pos+" reg_result: "+reg_result);
 
                 if (i>0) {

@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0cc88166-5847-4401-8a05-13469bd16016" name="Changes" comment="1">
-      <change afterPath="$PROJECT_DIR$/src/ProfitPoisson_Mars_Backorder_Costtogo_22112022_2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cost_hoca_ordli.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cost_v3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cost_v3_withcomment1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cost_version1_berk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cost_version2_berk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cost_version3_berk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cost_version3_esra1_m.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cost_version4_berk_fixed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/version_2_temp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProfitPoisson_Mars_Backorder_Costtogo_22112022_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProfitPoisson_Mars_Backorder_Costtogo_22112022_2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cost_hoca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cost_hoca.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,39 +58,37 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;settings.space&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ProfitPoisson_Mars_Backorder_Costtogo_22112022_2">
-    <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="HelloWorld" />
+  <component name="RunManager" selected="Application.cost_version4_berk_fixed">
+    <configuration name="cost_hoca_ordli" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cost_hoca_ordli" />
       <module name="personal" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProfitPoisson_BackOrder_Revisited_FINAL_04052022" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="11" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="ProfitPoisson_BackOrder_Revisited_FINAL_04052022" />
+    <configuration name="cost_version1_berk" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cost_version1_berk" />
       <module name="personal" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProfitPoisson_Mars_Backorder_Costtogo_22112022_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ProfitPoisson_Mars_Backorder_Costtogo_22112022_2" />
+    <configuration name="cost_version2_berk" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cost_version2_berk" />
       <module name="personal" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cost_hoca" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cost_hoca" />
+    <configuration name="cost_version4_berk_fixed" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cost_version4_berk_fixed" />
       <module name="personal" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="withcomment_4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="withcomment_4" />
+    <configuration name="version_2_temp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="version_2_temp" />
       <module name="personal" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -98,11 +107,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ProfitPoisson_Mars_Backorder_Costtogo_22112022_2" />
-        <item itemvalue="Application.cost_hoca" />
-        <item itemvalue="Application.ProfitPoisson_BackOrder_Revisited_FINAL_04052022" />
-        <item itemvalue="Application.HelloWorld" />
-        <item itemvalue="Application.withcomment_4" />
+        <item itemvalue="Application.cost_version4_berk_fixed" />
+        <item itemvalue="Application.version_2_temp" />
+        <item itemvalue="Application.cost_hoca_ordli" />
+        <item itemvalue="Application.cost_version2_berk" />
+        <item itemvalue="Application.cost_version1_berk" />
       </list>
     </recent_temporary>
   </component>
@@ -164,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668444452636</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="1">
+      <created>1669645222724</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669645222724</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -205,14 +221,24 @@
           <option name="timeStamp" value="96" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ProfitPoisson_Mars_Backorder_Costtogo_22112022_2.java</url>
-          <line>413</line>
-          <option name="timeStamp" value="98" />
+          <url>file://$PROJECT_DIR$/src/cost_hoca.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="123" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ProfitPoisson_Mars_Backorder_Costtogo_22112022_2.java</url>
-          <line>245</line>
-          <option name="timeStamp" value="105" />
+          <url>file://$PROJECT_DIR$/src/cost_version3_berk.java</url>
+          <line>286</line>
+          <option name="timeStamp" value="128" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cost_version3_berk.java</url>
+          <line>344</line>
+          <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cost_version1_berk.java</url>
+          <line>107</line>
+          <option name="timeStamp" value="132" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -221,6 +247,7 @@
         <watch expression="arr[0]" language="JAVA" />
         <watch expression="Z_bigSDouble[0]" />
         <watch expression="Z_bigSDouble[5]" />
+        <watch expression="poissonDistProbability" />
       </configuration>
     </watches-manager>
   </component>

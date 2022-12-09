@@ -7,7 +7,7 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 
-public class cost_hoca {
+public class cost_hoca_ordli {
 
     public static void main(String[] args) throws FileNotFoundException {
         Instant inst1 = Instant.now();
@@ -21,12 +21,12 @@ public class cost_hoca {
 
             //::
             double holdingCost = 2;
-            double backorderCost = 20;
-            int fixedCost = 25;
-            double alpha_all=0.5;
+            double backorderCost = 50;
+            int fixedCost = 40;
+            double alpha_all=0.4;
 
-            double lambda_all=4;
-            int m = 10; //max demand
+            double lambda_all=8;
+            int m = 25; //max demand
 
 
             int unitCost = 40;
@@ -85,10 +85,12 @@ public class cost_hoca {
 
             double[][] J = new double[s + m][sl]; //J denotes newsvendor cost (holding cost and backorder/lostsales cost in a period)
             J = Jcalculate(S, period, s,sl, m, alpha, lambda,holdingCost, backorderCost, MM,poissonDistProbability,binomialDistProbability);
-
+            PrintWriter Solutionnn= new PrintWriter("opt_progression.csv");
+            Solutionnn.println("Order_up_to,Demand,Inventory, prev_sale,total,total2");
             for (int p = period - 1; p >= 0; p--) {
-                Z_bigSDouble[p] = periodMatrixmodifiedv4(I, S, period, Z_bigSDouble[p + 1][0], J, n, sl, s, m, alpha, lambda, unitCost, fixedCost, retailPrice, returnCredit, holdingCost, backorderCost, BigM, MM, M, poissonDistProbability, binomialDistProbability);
+                Z_bigSDouble[p] = periodMatrixmodifiedv4_2(I, S, period, Z_bigSDouble[p + 1][0], J, n, sl, s, m, alpha, lambda, unitCost, fixedCost, retailPrice, returnCredit, holdingCost, backorderCost, BigM, MM, M, poissonDistProbability, binomialDistProbability,Solutionnn,p);
             }
+            Solutionnn.close();
 
             //write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m,period,"Solution",M,M+m,0,m,Z_bigSDouble);
             write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"ALL_COND_Solution",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
@@ -605,7 +607,63 @@ public class cost_hoca {
         return result;
 
     }
+    public static double[][][] periodMatrixmodifiedv4_2(int [] I , int [] S,int period, double[][] ZN, double[][] J,int n, int sl, int s, int m, double alpha, double lambda, int unitCost, int fixedCost, int retailPrice, int returnCredit, double holdingCost, double backorderCost,int BigM, int MM, int M, double[] poissonDistProbability,double[][] binomialDistProbability,PrintWriter Solutionnn,int p) {
 
+        double total;
+        double total2;
+        double[][][] Z_bigSDouble = new double[2][n][sl];
+        int[][] SS = new int[n][sl];
+        double z_line;
+        //----------------------------------------
+
+
+        for (int inv = 0; inv < n; inv++) { //Inventory
+
+            for (int j = 0; j < sl; j++) { //previous sales
+                double min = 100000;  //100000000 olduğunda sonuçlar yanlış çıkıyor lambda 11 de bile yanlıştı
+
+                for (int i = 0; i < s; i++) { //S up to order
+                    total2 = 0;
+                    for (int jj = 0; jj <= m; jj++) { //demand
+                        total = 0;
+                        for (int k = 0; k <= j; k++) { //return
+                            if (I[inv] < S[i]) {
+                                z_line = (binomialDistProbability[j][k]) * (poissonDistProbability[jj])  * ((S[i]- I[inv]) * unitCost + fixedCost + J[i][j] + k * returnCredit + ZN[S[i] + k - jj + M][Math.min(          (Math.max(0, I[inv]) + Math.max(0, (S[i] - I[inv]))+ k)    ,        (jj - (Math.min(0, I[inv]))))]); //JJ 0 ve i 32 DEYKEN İNDEX HATASI  !!!!!!!!!!!!!!!!!Burayı kesinlikle sor
+                            } else if (I[inv] ==S[i]) {
+                                z_line =(binomialDistProbability[j][k]) * (poissonDistProbability[jj]) * ( J[i][j] + k * returnCredit + ZN[S[i] + k - jj + M][Math.min((Math.max(0, I[inv]) + Math.max(0, (S[i] - I[inv])) + k), (jj - (Math.min(0, I[inv]))))]);
+                            } else {
+                                z_line = BigM;
+                            }
+                            total += z_line;
+                        }
+
+
+                        total2 +=total;
+
+                        if(p==0 & inv==M & j==0) {
+                            Solutionnn.println((i-MM)+","+jj+","+(inv-M)+","+j+","+total+","+total2);
+                        }
+                    }
+                    //if(p==0 & inv==M & j==0) {
+                      //  //Solutionnn.println();
+                    //}
+
+                    if (total2< min) {
+
+                        //Burada order upto değerine bakılması gerekli
+                        min = total2;
+                        SS[inv][j] = i;
+                    }
+                    //result2[inv][j][i] = total2;
+                }
+                Z_bigSDouble[0][inv][j] = min;
+                Z_bigSDouble[1][inv][j] = SS[inv][j] - MM;
+
+            }
+        }
+
+        return Z_bigSDouble;
+    }
     public static double[][][] periodMatrixmodifiedv4(int [] I , int [] S,int period, double[][] ZN, double[][] J,int n, int sl, int s, int m, double alpha, double lambda, int unitCost, int fixedCost, int retailPrice, int returnCredit, double holdingCost, double backorderCost,int BigM, int MM, int M, double[] poissonDistProbability,double[][] binomialDistProbability) {
 
         double total;
