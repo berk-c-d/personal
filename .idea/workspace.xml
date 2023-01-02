@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0cc88166-5847-4401-8a05-13469bd16016" name="Changes" comment="1">
-      <change afterPath="$PROJECT_DIR$/src/ADP_BasisFunction_18122022.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adp_v2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adp_v3_21122022.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adpwithsim_cleanv1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cost_version4_berk_exactbreak.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cost_version4_berk_exactbreakwithreg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cost_version4_berk_fixed_nonmod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_hoca_ordli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cost_hoca_ordli.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_version4_berk_fixed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cost_version4_berk_fixed.java" afterDir="false" />
-    </list>
+    <list default="true" id="0cc88166-5847-4401-8a05-13469bd16016" name="Changes" comment="1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -185,7 +174,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670558391782</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="1">
+      <created>1672680588973</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1672680588973</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

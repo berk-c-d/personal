@@ -7,6 +7,7 @@ import java.util.Random;
 import java.util.stream.IntStream;
 
 //Last Updated 13.12.2022
+//qqqqq
 public class cost_hoca_ordli {
 
     public static void main(String[] args) throws FileNotFoundException {
