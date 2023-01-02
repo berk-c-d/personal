@@ -1,17 +1,54 @@
 import java.io.*;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.Arrays;
-import java.util.stream.IntStream;
+        import java.time.Duration;
+        import java.time.Instant;
+        import java.util.Arrays;
+        import java.util.stream.IntStream;
 
 
-public class cost_version4_berk_fixed {
+public class cost_version4_berk_exactbreakwithreg {
 
     public static void main(String[] args) throws IOException {
         Instant inst1 = Instant.now();
 
         int BigM=10000; int nresult =46;
+        int period =5;
 
+        double[] B0 = new double[period];
+        double[] B1 = new double[period];
+        double[] B2 = new double[period];
+        double[] B3 = new double[period];
+        double[] B4 = new double[period];
+        double[] B5 = new double[period];
+
+        double[] B0_break= new double[period];
+        double[] B1_break= new double[period];
+        double[] B2_break= new double[period];
+        B0_break[1]=26.81017679   //ındexing used for period
+        ;
+        B0_break[2]=22.0457710174905
+        ;
+        B0_break[3]=15.74031033
+        ;
+        B0_break[4]=8.48097640422435
+        ;
+
+        B1_break[2]=-0.366341595
+        ;
+        B1_break[2]=-0.364201548599021
+        ;
+        B1_break[2]=-0.276905794
+        ;
+        B1_break[2]=-0.1354474940167
+        ;
+
+        B2_break[2]=0.000000000000000252
+        ;
+        B2_break[2]=2.93283463920907E-16
+        ;
+        B2_break[2]=-0.0000000000000000218
+        ;
+        B2_break[2]=-5.20417042793042E-17
+        ;
 
 
         /*
@@ -193,49 +230,18 @@ public class cost_version4_berk_fixed {
 
             String csvFile = "C:\\Users\\berkc\\IdeaProjects\\personal\\All Results-2\\Regression Results\\Results for all periods_version_4_CASE14.csv";
 
-            //Case-15 0.4	2	5	40	25	8
-            double alpha_all=0.4;
-            double holdingCost = 2;
-            double backorderCost = 5;
-            int fixedCost = 40;
-            int m = 25; //max demand
-            double lambda_all=8;
-            String case_number="15";
-
-            String csvFile = "C:\\Users\\berkc\\IdeaProjects\\personal\\All Results-2\\Regression Results\\Results for all periods_version_4_CASE15.csv";
-
-             //Case-16 0.5	2	5	100	25	8
-            double alpha_all=0.5;
-            double holdingCost = 2;
-            double backorderCost = 5;
-            int fixedCost = 100;
-            int m = 25; //max demand
-            double lambda_all=8;
-            String case_number="16";
-
-              String csvFile = "C:\\Users\\berkc\\IdeaProjects\\personal\\All Results-2\\Regression Results\\Results for all periods_version_4_CASE16.csv";
-
     */
 
-        //Case-18  0.5	2	20	100	25	8 period=2
-        double alpha_all=0.5;
+        //Case-1 0.4	2	20	40	25	8
+        double alpha_all=0.4;
         double holdingCost = 2;
         double backorderCost = 20;
-        int fixedCost = 100;
+        int fixedCost = 40;
         int m = 25; //max demand
         double lambda_all=8;
-        String case_number="18";
+        String case_number="1";
 
-        String csvFile = "C:\\Users\\berkc\\IdeaProjects\\personal\\All Results-2\\Regression Results\\Results for all periods_version_4_CASE18.csv";
-
-        int period =2;
-
-        double[] B0 = new double[period];
-        double[] B1 = new double[period];
-        double[] B2 = new double[period];
-        double[] B3 = new double[period];
-        double[] B4 = new double[period];
-        double[] B5 = new double[period];
+        String csvFile = "C:\\Users\\berkc\\Desktop\\Tubitak IMPORTANT\\Results for all periods_version_4_experimental.csv";
 
 
         int nn=100000;   //100000
@@ -300,16 +306,14 @@ public class cost_version4_berk_fixed {
 
         double lambdaSimulation = lambda_all;
 
-        int period_for_calculation=5;
-
         //--------------Inventory level after ordering---------------------------------------------------------------------------------
-        IntStream streamS = IntStream.range(-((period_for_calculation-1) * m), ((period_for_calculation)*m)+1);;
-        int MM = (period_for_calculation-1) * m; //neutralizes negative S
+        IntStream streamS = IntStream.range(-((period-1) * m), ((period)*m)+1);;
+        int MM = (period-1) * m; //neutralizes negative S
         int[] S = streamS.toArray();
         int s = S.length;
         //------------------------------------------------------------------------------------------------------------------------------
 
-        int sl =((period_for_calculation+2) * m)+1; //max # of sales
+        int sl =((period+2) * m)+1; //max # of sales
 
         double[] poissonDistProbability = new double[m+1];
         poissonDistProbability = poissonDist (lambda, m);
@@ -318,14 +322,10 @@ public class cost_version4_berk_fixed {
 
         double[] arr = new double[nresult];
         PrintWriter Solution;
-        PrintWriter Solution1;
-
-        if(nn==1){Solution= new PrintWriter("Integrated_reg_progression_ver4_for_case_"+case_number+"period0.csv");}
+        if(nn==1){Solution= new PrintWriter("Integrated_reg_progression_ver4_for_case_"+case_number+".csv");}
         else{ Solution= new PrintWriter("xxxx");}
-        if(nn==1){Solution1= new PrintWriter("Integrated_reg_progression_ver4_for_case_"+case_number+"period1.csv");}
-        else{ Solution1= new PrintWriter("xxxx");}
 
-        arr = SimulationMatrix(period, m, alphaSimulation, lambdaSimulation, unitCost, fixedCost, retailPrice, returnCredit, holdingCost, backorderCost, salvageValue,nresult ,S, sl, s, alpha, lambda, BigM, MM,  poissonDistProbability, binomialDistProbability,B0,B1,B2,B3,B4,B5,Solution,nn,Solution1);
+        arr = SimulationMatrix(period, m, alphaSimulation, lambdaSimulation, unitCost, fixedCost, retailPrice, returnCredit, holdingCost, backorderCost, salvageValue,nresult ,S, sl, s, alpha, lambda, BigM, MM,  poissonDistProbability, binomialDistProbability,B0,B1,B2,B3,B4,B5,Solution,nn,B0_break,B1_break,B2_break);
         PrintWriter Simulation_Solution;
         if(nn==1){Simulation_Solution= new PrintWriter("xxxxxx");}
         else{ Simulation_Solution= new PrintWriter("Integrated_reg_solution_ver4_for_case_"+case_number+".csv");}
@@ -338,10 +338,9 @@ public class cost_version4_berk_fixed {
         System.out.println("Elapsed Time: "+ Duration.between(inst1, inst2).toString());
     }
 
-    public static double[] SimulationMatrix(int period, int m, double alphaSimulation, double lambdaSimulation, int unitCost, int fixedCost, int retailPrice, int returnCredit, double holdingCost, double backorderCost, int salvageValue,int nresult ,int [] S,int sl, int s, double alpha, double lambda, int BigM, int MM,  double[] poissonDistProbability, double[][] binomialDistProbability,double[] B0,double[] B1,double[] B2,double[] B3,double[] B4,double[] B5,PrintWriter Solution,int nn,PrintWriter Solution1) {
+    public static double[] SimulationMatrix(int period, int m, double alphaSimulation, double lambdaSimulation, int unitCost, int fixedCost, int retailPrice, int returnCredit, double holdingCost, double backorderCost, int salvageValue,int nresult ,int [] S,int sl, int s, double alpha, double lambda, int BigM, int MM,  double[] poissonDistProbability, double[][] binomialDistProbability,double[] B0,double[] B1,double[] B2,double[] B3,double[] B4,double[] B5,PrintWriter Solution,int nn,double[] B0_break,double[] B1_break,double[] B2_break) {
         //Solution.println("Order_up_to,Cost");
         Solution.println("Order_up_to,Demand,Inventory, prev_sale,break_point_pos,i_min_k_neg, i_min_k_pos, reg_result,zline,total");
-        Solution1.println("Order_up_to,Demand,Return,Inventory, prev_sale,break_point_pos,i_min_k_neg, i_min_k_pos, reg_result,zline_,total");
 
 
 
@@ -391,9 +390,11 @@ public class cost_version4_berk_fixed {
                 total = 0;
                 for (int jj = 0; jj <= m; jj++) { //demand
                     double prev_sale=Math.min(i,jj);
-                    double break_point=lambda*(period-1)-alpha*Math.min(i,jj);
-                    double break_point_pos=Math.max(break_point,0);
                     double inventory=i-jj;
+                    double break_point=B0_break[1]+B1_break[1]*prev_sale+B2_break[1]*inventory;
+                    double break_point_pos=Math.max(break_point,0);
+
+                    //double break_point_pos=B0_break[1]+B1_break[1]*prev_sale+B2_break[1]*inventory;
                     double inv_min_brk_point=inventory-break_point_pos;
                     double inv_min_brk_point_pos=Math.max(0,inv_min_brk_point);
                     double inv_min_brk_point_neg=Math.max(0,inv_min_brk_point*-1);
@@ -464,8 +465,9 @@ public class cost_version4_berk_fixed {
                         for (int k_ = 0; k_ <=SL[i-1] ; k_++) { //returniiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii <=j vardı sorulack
                             double prev_sale=Math.min(Math.max(0, I[i]) + Math.max(0, (S[i_] - I[i])) + k_, jj_ - Math.min(0, I[i]));
                             double inventory=S[i_] + k_ - jj_;
-                            double break_point=lambda*(period-i-1)-alpha*prev_sale;
+                            double break_point=B0_break[1]+B1_break[1]*prev_sale+B2_break[1]*inventory;
                             double break_point_pos=Math.max(break_point,0);
+                            //double break_point_pos=B0_break[i+1]+B1_break[i+1]*prev_sale+B2_break[i+1]*inventory;
                             double inv_min_brk_point=inventory-break_point_pos;
                             double inv_min_brk_point_pos=Math.max(0,inv_min_brk_point);
                             double inv_min_brk_point_neg=Math.max(0,inv_min_brk_point*-1);
@@ -498,10 +500,6 @@ public class cost_version4_berk_fixed {
 
 
                             total_ += z_line_;
-                            if(nn==1 & i==1) {
-                                Solution1.println(i_+","+jj_+","+k_+","+inventory+","+prev_sale+","+break_point_pos+","+inv_min_brk_point_neg+","+inv_min_brk_point_pos+","+reg_result+","+z_line_+","+total_);
-                            }
-
 
                         }
                         total2_ +=total_;
@@ -665,11 +663,11 @@ public class cost_version4_berk_fixed {
                 if (I[period] + R[period] < 0) {
                     totalEndingInventoryCost = (I[period] + R[period]) * -(unitCost)
                             - I[period] * alphaSimulation * (returnCredit - salvageValue)
-                    +R[period] * returnCredit;
+                            +R[period] * returnCredit;
                 } else if (I[period] < 0) {
                     totalEndingInventoryCost = (I[period] + R[period]) * -salvageValue
                             - I[period] * alphaSimulation * (returnCredit - salvageValue)
-                    + R[period] * returnCredit;
+                            + R[period] * returnCredit;
                 } else {
                     totalEndingInventoryCost = (I[period] + R[period]) * -salvageValue+
                             R[period] * returnCredit;
@@ -705,9 +703,8 @@ public class cost_version4_berk_fixed {
 
             double tc = totalCost;
 
-            // result = new double[] {tc, pc, oc, hc, bc,tec, rc, SLV,tc, O[0],O[1], bigSValue[0], bigSValue[1], BO[0],BO[1], HI[0],HI[1],R[1],R[2], SL[0],SL[1],SL[2], I[0],I[1]};
-            arr = new double[] {tc, pc, oc, hc, bc,tec, rc,SLV,tc,O[0],O[1],Z_bigSDouble[0],Z_bigSDouble[1], BO[0],BO[1], HI[0],HI[1], R[1],R[2], SL[0],SL[1], I[0], I[1]};
-            //arr = new double[] {tc, pc, oc, hc, bc,tec, rc,SLV,tc,O[0],O[1],O[2],O[3],O[4],Z_bigSDouble[0],Z_bigSDouble[1],Z_bigSDouble[2],Z_bigSDouble[3],Z_bigSDouble[4], BO[0],BO[1],BO[2],BO[3],BO[4], HI[0],HI[1],HI[2],HI[3],HI[4], R[1],R[2],R[3],R[4],R[5], SL[0],SL[1],SL[2],SL[3],SL[4],SL[5], I[0], I[1], I[2], I[3], I[4], I[5]  };
+
+            arr = new double[] {tc, pc, oc, hc, bc,tec, rc,SLV,tc,O[0],O[1],O[2],O[3],O[4],Z_bigSDouble[0],Z_bigSDouble[1],Z_bigSDouble[2],Z_bigSDouble[3],Z_bigSDouble[4], BO[0],BO[1],BO[2],BO[3],BO[4], HI[0],HI[1],HI[2],HI[3],HI[4], R[1],R[2],R[3],R[4],R[5], SL[0],SL[1],SL[2],SL[3],SL[4],SL[5], I[0], I[1], I[2], I[3], I[4], I[5]  };
 
 
             for(int jj=0;jj<arr.length;jj++){
@@ -715,7 +712,6 @@ public class cost_version4_berk_fixed {
             }
         }
         Solution.close();
-        Solution1.close();
 
         for(int jj=0;jj<arr.length;jj++){
             arr_mean[jj]=arr_sum[jj]/nn;

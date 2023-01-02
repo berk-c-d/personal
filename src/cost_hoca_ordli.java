@@ -6,27 +6,202 @@ import java.util.Arrays;
 import java.util.Random;
 import java.util.stream.IntStream;
 
-
+//Last Updated 13.12.2022
 public class cost_hoca_ordli {
 
     public static void main(String[] args) throws FileNotFoundException {
         Instant inst1 = Instant.now();
-        int BigM=10000; int nresult =70;
+        int BigM=10000; int nresult =46;
         int nExperiment = 1;
 
 
         for (int i = 0; i < nExperiment; i++) {
 
             System.out.println(" Experiment: " + i);
+            /*
+            //Basecase 0.5	2	20	25	10	4
+            double alpha_all=0.5;
+            double holdingCost = 2;
+            double backorderCost = 20;
+            int fixedCost = 25;
+            int m = 10; //max demand
+            double lambda_all=4;
+            String case_number="base";
 
-            //::
+
+            //Case-1 0.4	2	20	40	25	8
+            double alpha_all=0.4;
+            double holdingCost = 2;
+            double backorderCost = 20;
+            int fixedCost = 40;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="1";
+
+
+            //Case-2  0.4	2.4	20	40	25	8
+            double alpha_all=0.4;
+            double holdingCost = 2.4;
+            double backorderCost = 20;
+            int fixedCost = 40;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="2";
+
+
+            //Case-3  	0.4	2	32	40	25	8
+            double alpha_all=0.4;
+            double holdingCost = 2;
+            double backorderCost = 32;
+            int fixedCost = 40;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="3";
+
+
+            //Case-4 0.4	2.4	32	40	25	8
+            double alpha_all=0.4;
+            double holdingCost = 2.4;
+            double backorderCost = 32;
+            int fixedCost = 40;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="4";
+
+
+            //Case-5  0.4	2	50	40	25	8
+            double alpha_all=0.4;
             double holdingCost = 2;
             double backorderCost = 50;
             int fixedCost = 40;
-            double alpha_all=0.4;
-
-            double lambda_all=8;
             int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="5";
+
+
+            //Case-6  0.5	2	50	40	25	8
+            double alpha_all=0.5;
+            double holdingCost = 2;
+            double backorderCost = 50;
+            int fixedCost = 40;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="6";
+
+
+            //Case-7 0.4	2.4	50	40	25	8
+            double alpha_all=0.4;
+            double holdingCost = 2.4;
+            double backorderCost = 50;
+            int fixedCost = 40;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="7";
+
+
+            //Case-8 0.4	2	20	50	25	8
+            double alpha_all=0.4;
+            double holdingCost = 2;
+            double backorderCost = 20;
+            int fixedCost = 50;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="8";
+
+
+            //Case-9  0.4	2.4	20	50	25	8
+            double alpha_all=0.4;
+            double holdingCost = 2.4;
+            double backorderCost = 20;
+            int fixedCost = 50;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="9";
+
+
+            //Case-10  0.5	2	20	100	25	8
+            double alpha_all=0.5;
+            double holdingCost = 2;
+            double backorderCost = 20;
+            int fixedCost = 100;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="10";
+
+
+            //Case-11  0.5	2	20	45	25	8
+            double alpha_all=0.5;
+            double holdingCost = 2;
+            double backorderCost = 20;
+            int fixedCost = 45;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="11";
+
+
+            //Case-12  0.4	2	50	80	25	8
+            double alpha_all=0.4;
+            double holdingCost = 2;
+            double backorderCost = 50;
+            int fixedCost = 80;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="12";
+
+
+            //Case-13  0	2	20	100	25	8
+            double alpha_all=0;
+            double holdingCost = 2;
+            double backorderCost = 20;
+            int fixedCost = 100;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="13";
+
+
+            //Case-14  0.1	2	20	100	25	8
+            double alpha_all=0.1;
+            double holdingCost = 2;
+            double backorderCost = 20;
+            int fixedCost = 100;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="14";
+
+            //Case-15 0.4	2	5	40	25	8
+            double alpha_all=0.4;
+            double holdingCost = 2;
+            double backorderCost = 5;
+            int fixedCost = 40;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="15";
+
+             //Case-16 0.5	2	5	100	25	8
+            double alpha_all=0.5;
+            double holdingCost = 2;
+            double backorderCost = 5;
+            int fixedCost = 100;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="16";
+
+
+
+
+ */
+
+
+            //Case-18  0.5	2	20	100	25	8 period=2
+            double alpha_all=0.5;
+            double holdingCost = 2;
+            double backorderCost = 20;
+            int fixedCost = 100;
+            int m = 25; //max demand
+            double lambda_all=8;
+            String case_number="18";
+            int period =2; //number of periods starting from 0, period is also used for terminal period  n=5
+
 
 
             int unitCost = 40;
@@ -37,7 +212,7 @@ public class cost_hoca_ordli {
 
             int retailPrice = 80; //satış fiyatı
 
-            int period =5; //number of periods starting from 0, period is also used for terminal period  n=5
+
 
             double alpha = alpha_all; //return rate
 
@@ -53,22 +228,22 @@ public class cost_hoca_ordli {
 
 
 
-
+            int period_for_calculation=5;
             //--------------Inventory-----------------------------------------------------------------------------------------------------
-            IntStream streamI = IntStream.range(-(period * m),((period)*2*m+period*m));
-            int M =period * m; //neutralizes negative I
+            IntStream streamI = IntStream.range(-(period_for_calculation * m),((period_for_calculation)*2*m+period_for_calculation*m));
+            int M =period_for_calculation * m; //neutralizes negative I
             int[] I = streamI.toArray();
             int n = I.length;
             //-----------------------------------------------------------------------------------------------------------------------------
 
             //--------------Inventory level after ordering---------------------------------------------------------------------------------
-            IntStream streamS = IntStream.range(-((period-1) * m), ((period)*m)+1); //!!!!!!!!!!!!!son sayıdaki bigm bunu 1 arttırınca düzeldi!!!!!!!!!!!!!!!!!!!!!!!!!!
-            int MM = (period-1) * m; //neutralizes negative S
+            IntStream streamS = IntStream.range(-((period_for_calculation-1) * m), ((period_for_calculation)*m)+1); //!!!!!!!!!!!!!son sayıdaki bigm bunu 1 arttırınca düzeldi!!!!!!!!!!!!!!!!!!!!!!!!!!
+            int MM = (period_for_calculation-1) * m; //neutralizes negative S
             int[] S = streamS.toArray();
             int s = S.length;
             //------------------------------------------------------------------------------------------------------------------------------
 
-            int sl =((period+2) * m)+1; //max # of sales  ////!!!!!bu değer arttırıldığı zaman possible conditionların oluştuğu dosyadaki en altta bulunan bigm ler ortadan kayboldu!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!çünkü binomdistdeki j indexi dolaylı yoldan etkiliyor
+            int sl =((period_for_calculation+2) * m)+1; //max # of sales  ////!!!!!bu değer arttırıldığı zaman possible conditionların oluştuğu dosyadaki en altta bulunan bigm ler ortadan kayboldu!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!çünkü binomdistdeki j indexi dolaylı yoldan etkiliyor
 
             double[] poissonDistProbability = new double[m+1];
             poissonDistProbability = poissonDist (lambda, m);  //Max demand gönderiliyor çünkü 0dan bu değere kadar demand gelme olasılıkları hesaplanıp 1D arraye kaydediliyor.
@@ -80,12 +255,12 @@ public class cost_hoca_ordli {
             binomialDistProbabilityC = binomialDist(sl, alphaC);
 
 
-            double[][][][] Z_bigSDouble = new double[period+1][2][n][sl];
+            double[][][][] Z_bigSDouble = new double[period_for_calculation+1][2][n][sl];
             Z_bigSDouble[period][0] = ZEndcalculate(I, period, n,sl, m, alpha, unitCost, salvageValue, retailPrice, returnCredit, fixedCost,unitCost, binomialDistProbability);
 
             double[][] J = new double[s + m][sl]; //J denotes newsvendor cost (holding cost and backorder/lostsales cost in a period)
             J = Jcalculate(S, period, s,sl, m, alpha, lambda,holdingCost, backorderCost, MM,poissonDistProbability,binomialDistProbability);
-            PrintWriter Solutionnn= new PrintWriter("opt_progression.csv");
+            PrintWriter Solutionnn= new PrintWriter("opt_progression_for_case_"+case_number+".csv");
             Solutionnn.println("Order_up_to,Demand,Inventory, prev_sale,total,total2");
             for (int p = period - 1; p >= 0; p--) {
                 Z_bigSDouble[p] = periodMatrixmodifiedv4_2(I, S, period, Z_bigSDouble[p + 1][0], J, n, sl, s, m, alpha, lambda, unitCost, fixedCost, retailPrice, returnCredit, holdingCost, backorderCost, BigM, MM, M, poissonDistProbability, binomialDistProbability,Solutionnn,p);
@@ -97,11 +272,11 @@ public class cost_hoca_ordli {
             //write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"Solution",0,s+m,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble);
             //write_sols_for_Z_bigSDouble_v3(period,alpha,lambda,m, period,"ONLY_POSS_COND_Solution",0,s+m,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
             //write_sols_for_Z_bigSDouble_v3(period,alpha,lambda,m, period,"ONLY_POSS_COND_Solution_Cost_Enishoca",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
-            write_sols_for_Z_bigSDouble_v4(period,alpha,lambda,m, period,"POS_COST_hold_"+holdingCost+"backo_"+backorderCost+"fix_"+fixedCost,0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
+            write_sols_for_Z_bigSDouble_v4(period,alpha,lambda,m, period,"POS_COST_hold_"+holdingCost+"backo_"+backorderCost+"fix_"+fixedCost+"case_number_"+case_number,0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
             //-------------------------------------------------NAIVE--------------------------------------------------------------------------------
 
 
-            double[][][][] Z_bigSDoubleC = new double[period+1][2][n][sl];
+            double[][][][] Z_bigSDoubleC = new double[period_for_calculation+1][2][n][sl];
             Z_bigSDoubleC[period][0] = ZEndcalculate(I, period, n,sl, m, alphaC, unitCost, salvageValue, retailPrice, returnCredit, fixedCost,unitCost, binomialDistProbabilityC);
 
             double[][] JC = new double[s + m][sl];
@@ -126,7 +301,9 @@ public class cost_hoca_ordli {
             arr = SimulationMatrix_v3adapted(period, Z_bigSDouble,Z_bigSDoubleC,  OP, OPC, m, alphaSimulation, lambdaSimulation, unitCost, fixedCost, retailPrice, returnCredit, holdingCost, backorderCost, salvageValue, M, nresult);
 
             //Experiment[i] = arr;
-            PrintWriter Solution = new PrintWriter("max_per_"+String.valueOf(period)+"__maxdem_"+String.valueOf(m)+"__alpha_"+String.valueOf(alphaSimulation)+"__lambda_"+String.valueOf(lambdaSimulation)+"_Simulation_result.txt");
+            //PrintWriter Solution = new PrintWriter("max_per_"+String.valueOf(period)+"__maxdem_"+String.valueOf(m)+"__alpha_"+String.valueOf(alphaSimulation)+"__lambda_"+String.valueOf(lambdaSimulation)+"_Simulation_result.txt");
+            PrintWriter Solution = new PrintWriter("SIMULATION RESULT FOR CASE NUMBER "+case_number+".csv");
+            Solution.println("tc, pc, oc, hc, bc,tec, rc,SLV,tc, O[0],O[1],O[2],O[3],O[4],bigSValue[0], bigSValue[1], bigSValue[2], bigSValue[3], bigSValue[4], BO[0],BO[1],BO[2],BO[3],BO[4], HI[0],HI[1],HI[2],HI[3],HI[4],R[1],R[2],R[3],R[4],R[5],SL[0],SL[1],SL[2],SL[3],SL[4],SL[5], I[0],I[1],I[2],I[3],I[4],I[5]");
             Solution.println(Arrays.toString(arr));
 
             System.out.println(Arrays.toString(arr));
@@ -211,7 +388,7 @@ public class cost_hoca_ordli {
             String lambdavals=String.valueOf(lambdaval);
             String maxdemands=String.valueOf(maxdemand);
             PrintWriter Solutionn= new PrintWriter("maxper_"+maxperiods+"_maxdem_"+maxdemands+"_alpha_"+alphavals+"_lambda_"+lambdavals+"-"+filename+"period "+ssss+"__Inventory_"+ssss1+"to"+ssss2+"_prevs_"+ssss3+" to "+ssss4+".csv");
-            Solutionn.println("Inventory,Previous_sale,Cost,Break_Point,Break_Point_pos,Inv_brk_pos,Inv_brk_neg");
+            Solutionn.println("Inventory,Previous_sale,Cost,Break_Point,Break_Point_pos,Inv_brk_pos,Inv_brk_neg,Inv_brk_pos_sqr,Inv_brk_neg_sqr");
             double break_p=0;
             double break_p_pos;
             double inv_min_brk_pos;
@@ -225,10 +402,10 @@ public class cost_hoca_ordli {
 
                         if(inv-M-break_p_pos>=0){inv_min_brk_pos=inv-M-break_p_pos;
                             inv_min_brk_neg=0;}
-                        else{inv_min_brk_neg=inv-M-break_p_pos;
+                        else{inv_min_brk_neg=(inv-M-break_p_pos)*-1;
                             inv_min_brk_pos=0;
                         }
-                        resultt = new double[]{inv - M, j , Z_bigSDouble[p][0][inv][j],break_p,break_p_pos,inv_min_brk_pos,inv_min_brk_neg};
+                        resultt = new double[]{inv - M, j , Z_bigSDouble[p][0][inv][j],break_p,break_p_pos,inv_min_brk_pos,inv_min_brk_neg,inv_min_brk_pos*inv_min_brk_pos,inv_min_brk_neg*inv_min_brk_neg};
                         Solutionn.println(Arrays.toString(resultt).replace("[", "").replace("]", ""));
                     }}
             }
@@ -276,6 +453,8 @@ public class cost_hoca_ordli {
         int[] I = new int[period + 1]; //inventory
         int[] R = new int[period + 1]; //return
         int[] O = new int[period]; //order
+        double[] bigSValue = new double[period];
+
         int[] D = new int[period]; //demand
         int[] BO = new int[period]; //backorder
         int[] IO = new int[period + 1]; //inventory on hand
@@ -307,6 +486,8 @@ public class cost_hoca_ordli {
 
         //O[0] = Math.max(0, (bigS[0][M][0]));
         O[0] = (int)Math.max(0, (Z_bigSDouble[0][1][M][0]));
+        bigSValue[0] = Z_bigSDouble[0][1][M][0];  ////-----------------
+
 
 
         BO[0] = Math.max(0, D[0] - I[0] - O[0] - R[0]);
@@ -333,6 +514,7 @@ public class cost_hoca_ordli {
 
 
             O[i] = Math.max(0, ((int)Z_bigSDouble[i][1][I[i] + M][SL[i - 1]] - I[i]));
+            bigSValue[i] = Z_bigSDouble[i][1][I[i] + M][SL[i - 1]] ;
 
 
             BO[i] = Math.max(0, D[i] - I[i] - O[i] - R[i]);
@@ -406,12 +588,15 @@ public class cost_hoca_ordli {
 
             if (I[period] + R[period] < 0) {
                 totalEndingInventoryCost = (I[period] + R[period]) * -(unitCost)
-                        - I[period] * alphaSimulation * (returnCredit - salvageValue);
+                        - I[period] * alphaSimulation * (returnCredit - salvageValue)
+                        +R[period]*returnCredit;
             } else if (I[period] < 0) {
                 totalEndingInventoryCost = (I[period] + R[period]) * -salvageValue
-                        - I[period] * alphaSimulation * (returnCredit - salvageValue);
+                        - I[period] * alphaSimulation * (returnCredit - salvageValue)
+                        +R[period]*returnCredit;
             } else {
-                totalEndingInventoryCost = (I[period] + R[period]) * -salvageValue;
+                totalEndingInventoryCost = (I[period] + R[period]) * -salvageValue
+                        +R[period]*returnCredit;
             }
 
             if (I[period] < 0) {
@@ -420,8 +605,8 @@ public class cost_hoca_ordli {
                 SL[period] = 0;
             }
 
-            returnCost1 += R[p] * returnCredit;
-            returnCost = returnCost1 + R[period] * returnCredit;
+
+            returnCost += R[p] * returnCredit;
 
             Revenue1 += SL[p] * retailPrice;
             Revenue = Revenue1 + SL[period] * retailPrice;
@@ -598,10 +783,15 @@ public class cost_hoca_ordli {
         double tcC = totalCostC;
         double prC = ProfitC;
         //pr profit , OPR optimal profit
-        result = new double[] {pr, -OPR ,prC, -OPRC ,CSL,fraverage,CSLC,fraverageC, pc, oc, hc, bc,tec, rc, tc, rv,SLV,pcC, ocC,
+        /*result = new double[] {pr, -OPR ,prC, -OPRC ,CSL,fraverage,CSLC,fraverageC, pc, oc, hc, bc,tec, rc, tc, rv,SLV,pcC, ocC,
                 hcC, bcC, tecC, rcC, tcC, rvC, SLVC, O[0], O[1],O[2],O[3],BO[0],BO[1],BO[2],BO[3],HI[0],HI[1],HI[2],HI[3],
                 R[1],R[2],R[3],R[4],SL[0],SL[1],SL[2],SL[3],SL[4],I[4], OC[0], OC[1],OC[2],OC[3],BOC[0],BOC[1],BOC[2],BOC[3],HIC[0],
                 HIC[1],HIC[2],HIC[3],RC[1],RC[2],RC[3],RC[4],SLC[0],SLC[1],SLC[2],SLC[3],SLC[4],IC[4]};
+
+
+         */
+        //result = new double[] {tc, pc, oc, hc, bc,tec, rc, SLV,tc, O[0],O[1],O[2],O[3],O[4], bigSValue[0], bigSValue[1], bigSValue[2], bigSValue[3], bigSValue[4], BO[0],BO[1],BO[2],BO[3],BO[4], HI[0],HI[1],HI[2],HI[3],HI[4], R[1],R[2],R[3],R[4],R[5], SL[0],SL[1],SL[2],SL[3],SL[4],SL[5], I[0],I[1],I[2],I[3],I[4],I[5]};
+        result = new double[] {tc, pc, oc, hc, bc,tec, rc, SLV,tc, O[0],O[1], bigSValue[0], bigSValue[1], BO[0],BO[1], HI[0],HI[1],R[1],R[2], SL[0],SL[1], I[0],I[1]};
 
 
         return result;
@@ -640,9 +830,7 @@ public class cost_hoca_ordli {
 
                         total2 +=total;
 
-                        if(p==0 & inv==M & j==0) {
-                            Solutionnn.println((i-MM)+","+jj+","+(inv-M)+","+j+","+total+","+total2);
-                        }
+                        if(p==0 & inv==M & j==0) {Solutionnn.println((i-MM)+","+jj+","+(inv-M)+","+j+","+total+","+total2);}
                     }
                     //if(p==0 & inv==M & j==0) {
                       //  //Solutionnn.println();

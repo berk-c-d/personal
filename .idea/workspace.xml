@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cc88166-5847-4401-8a05-13469bd16016" name="Changes" comment="1">
-      <change afterPath="$PROJECT_DIR$/src/cost_hoca_ordli.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cost_v3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cost_v3_withcomment1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cost_version1_berk.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cost_version2_berk.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cost_version3_berk.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cost_version3_esra1_m.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cost_version4_berk_fixed.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/version_2_temp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ADP_BasisFunction_18122022.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/adp_v2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/adp_v3_21122022.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/adpwithsim_cleanv1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cost_version4_berk_exactbreak.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cost_version4_berk_exactbreakwithreg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cost_version4_berk_fixed_nonmod.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProfitPoisson_Mars_Backorder_Costtogo_22112022_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProfitPoisson_Mars_Backorder_Costtogo_22112022_2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_hoca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cost_hoca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_hoca_ordli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cost_hoca_ordli.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_version4_berk_fixed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cost_version4_berk_fixed.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +56,28 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;settings.space&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.cost_version4_berk_fixed">
+  <component name="RunManager" selected="Application.adpwithsim_cleanv1">
+    <configuration name="adp_v2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="adp_v2" />
+      <module name="personal" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="adp_v3_21122022" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="adp_v3_21122022" />
+      <module name="personal" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="adpwithsim_cleanv1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="adpwithsim_cleanv1" />
+      <module name="personal" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="cost_hoca_ordli" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cost_hoca_ordli" />
       <module name="personal" />
@@ -66,29 +85,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cost_version1_berk" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cost_version1_berk" />
-      <module name="personal" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="cost_version2_berk" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cost_version2_berk" />
-      <module name="personal" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="cost_version4_berk_fixed" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cost_version4_berk_fixed" />
-      <module name="personal" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="version_2_temp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="version_2_temp" />
       <module name="personal" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -107,11 +105,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.adpwithsim_cleanv1" />
+        <item itemvalue="Application.adp_v3_21122022" />
         <item itemvalue="Application.cost_version4_berk_fixed" />
-        <item itemvalue="Application.version_2_temp" />
         <item itemvalue="Application.cost_hoca_ordli" />
-        <item itemvalue="Application.cost_version2_berk" />
-        <item itemvalue="Application.cost_version1_berk" />
+        <item itemvalue="Application.adp_v2" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669645222724</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="1">
+      <created>1670558391782</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670558391782</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -240,6 +245,55 @@
           <line>107</line>
           <option name="timeStamp" value="132" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/cost_version4_berk_fixed.java</url>
+          <line>286</line>
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ADP_BasisFunction_18122022.java</url>
+          <line>390</line>
+          <option name="timeStamp" value="162" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ADP_BasisFunction_18122022.java</url>
+          <line>630</line>
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/adp_v2.java</url>
+          <line>726</line>
+          <option name="timeStamp" value="164" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ADP_BasisFunction_18122022.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="167" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/adp_v2.java</url>
+          <line>653</line>
+          <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/adpwithsim_cleanv1.java</url>
+          <line>301</line>
+          <option name="timeStamp" value="182" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/adpwithsim_cleanv1.java</url>
+          <line>637</line>
+          <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/adp_v2.java</url>
+          <line>1241</line>
+          <properties class="adp_v2" method="getBinomialRandom">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="172" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -248,6 +302,7 @@
         <watch expression="Z_bigSDouble[0]" />
         <watch expression="Z_bigSDouble[5]" />
         <watch expression="poissonDistProbability" />
+        <watch expression="errors" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
