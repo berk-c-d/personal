@@ -204,7 +204,7 @@ public class adpwithsim_cleanv1 {
         double lambda_all=4;
         String case_number="base";
 
-        int nn=100000;   //100000
+        int nn=1;   //100000
 
         int unitCost = 40;
 
@@ -236,7 +236,7 @@ public class adpwithsim_cleanv1 {
         double[][] binomialDistProbability = new double[sl][sl+1];
         binomialDistProbability = binomialDist(sl, alpha);
 
-        int N = 100;
+        int N = 100000;
         int nBeta = 6; //number of features(betas)
 
 
@@ -246,36 +246,40 @@ public class adpwithsim_cleanv1 {
         //double[][][][][] ADP_Iteration =new double[3][2][period][nBeta][nBeta];
         //double[][][][][] ADP_Iteration2 =new double[3][2][period][nBeta][nBeta];
 
-        ADP_BetaAndB[0][0][0][0][0] = 100; //iteration-0(beta)1(B)-Betanın periodu-[[kaçıncı beta(feature) olduğu-matrix]]]
-        ADP_BetaAndB[0][0][0][0][1] = 100;
-        ADP_BetaAndB[0][0][0][0][2] = 100;
-        ADP_BetaAndB[0][0][0][0][3]= 100;
-        ADP_BetaAndB[0][0][0][0][4] = 100;
-        ADP_BetaAndB[0][0][0][0][5] = 100;
-        ADP_BetaAndB[0][0][1][0][0]= 100;
-        ADP_BetaAndB[0][0][1][0][1] = 100;
-        ADP_BetaAndB[0][0][1][0][2] = 100;
-        ADP_BetaAndB[0][0][1][0][3] = 100;
-        ADP_BetaAndB[0][0][1][0][4] = 100;
-        ADP_BetaAndB[0][0][1][0][5] = 100;
-        ADP_BetaAndB[0][0][2][0][0] = 100;
-        ADP_BetaAndB[0][0][2][0][1] = 100;
-        ADP_BetaAndB[0][0][2][0][2] = 100;
-        ADP_BetaAndB[0][0][2][0][3]= 100;
-        ADP_BetaAndB[0][0][2][0][4] = 100;
-        ADP_BetaAndB[0][0][2][0][5] = 100;
-        ADP_BetaAndB[0][0][3][0][0] = 100;
-        ADP_BetaAndB[0][0][3][0][1] = 100;
-        ADP_BetaAndB[0][0][3][0][2] = 100;
-        ADP_BetaAndB[0][0][3][0][3]= 100;
-        ADP_BetaAndB[0][0][3][0][4] = 100;
-        ADP_BetaAndB[0][0][3][0][5] = 100;
-        ADP_BetaAndB[0][0][4][0][0]= 100;
-        ADP_BetaAndB[0][0][4][0][1] = 100;
-        ADP_BetaAndB[0][0][4][0][2] = 100;
-        ADP_BetaAndB[0][0][4][0][3] = 100;
-        ADP_BetaAndB[0][0][4][0][4]= 100;
-        ADP_BetaAndB[0][0][4][0][5] = 100;
+        ADP_BetaAndB[0][0][0][0][0] = 0; //iteration-0(beta)1(B)-Betanın periodu-[[kaçıncı beta(feature) olduğu-matrix]]]
+        ADP_BetaAndB[0][0][0][0][1] = 0;
+        ADP_BetaAndB[0][0][0][0][2] = 0;
+        ADP_BetaAndB[0][0][0][0][3]= 0;
+        ADP_BetaAndB[0][0][0][0][4] = 0;
+        ADP_BetaAndB[0][0][0][0][5] = 0;
+
+        ADP_BetaAndB[0][0][1][0][0]= 0;
+        ADP_BetaAndB[0][0][1][0][1] = 0;
+        ADP_BetaAndB[0][0][1][0][2] = 0;
+        ADP_BetaAndB[0][0][1][0][3] = 0;
+        ADP_BetaAndB[0][0][1][0][4] = 0;
+        ADP_BetaAndB[0][0][1][0][5] = 0;
+
+        ADP_BetaAndB[0][0][2][0][0] = 0;
+        ADP_BetaAndB[0][0][2][0][1] = 0;
+        ADP_BetaAndB[0][0][2][0][2] = 0;
+        ADP_BetaAndB[0][0][2][0][3]= 0;
+        ADP_BetaAndB[0][0][2][0][4] = 0;
+        ADP_BetaAndB[0][0][2][0][5] = 0;
+
+        ADP_BetaAndB[0][0][3][0][0] = 0;
+        ADP_BetaAndB[0][0][3][0][1] = 0;
+        ADP_BetaAndB[0][0][3][0][2] = 0;
+        ADP_BetaAndB[0][0][3][0][3]= 0;
+        ADP_BetaAndB[0][0][3][0][4] = 0;
+        ADP_BetaAndB[0][0][3][0][5] = 0;
+
+        ADP_BetaAndB[0][0][4][0][0]= 0;
+        ADP_BetaAndB[0][0][4][0][1] = 0;
+        ADP_BetaAndB[0][0][4][0][2] = 0;
+        ADP_BetaAndB[0][0][4][0][3] = 0;
+        ADP_BetaAndB[0][0][4][0][4]= 0;
+        ADP_BetaAndB[0][0][4][0][5] = 0;
 
         double eps=0.01;
 
@@ -635,7 +639,7 @@ public class adpwithsim_cleanv1 {
             New_ADP_BetaAndB[0][i][0] = Betas_substructed_transpose;
             //System.out.println("XXXX");
         }
-        System.out.println("XXXX");
+        //System.out.println("XXXX");
         return New_ADP_BetaAndB;
     }
 

@@ -4,7 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0cc88166-5847-4401-8a05-13469bd16016" name="Changes" comment="1" />
+    <list default="true" id="0cc88166-5847-4401-8a05-13469bd16016" name="Changes" comment="1">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/multiperiod_1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/multiperiod_optimization.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/multiperiod_optimization_node1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/multiperiod_optimization_node2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/multiperiod_optimization_node3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/multiperiodwithreg_v1_old.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/multiperiodwithreg_v2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/multiperiodwithreg_v2_node1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/multiperiodwithreg_v2_node2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/multiperiodwithreg_v2_node3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/multiperiodwithreg_v2_node4.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Debugg.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HelloWorld.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022_original.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProfitPoisson_Mars_Backorder_Costtogo_22112022_2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adpwithsim_cleanv1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adpwithsim_cleanv1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_esra.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_hoca.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_hoca_ordli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cost_hoca_ordli.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_v3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_v3_withcomment1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_version1_berk.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_version2_berk.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_version3_berk.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_version3_esra1_m.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_version4_berk_exactbreak.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_version4_berk_exactbreakwithreg.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cost_version4_berk_fixed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cost_version4_berk_fixed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/float_converted.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/temporj.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/version_2_temp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/withcomment_1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/withcomment_2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/withcomment_4.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/withcomment_5.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,41 +80,42 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/berkc/IdeaProjects/personal&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.space&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.adpwithsim_cleanv1">
-    <configuration name="adp_v2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="adp_v2" />
+  <component name="RunManager" selected="Application.multiperiodwithreg_v2">
+    <configuration name="multiperiod_optimization" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multiperiod_optimization" />
       <module name="personal" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="adp_v3_21122022" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="adp_v3_21122022" />
+    <configuration name="multiperiodwithreg_v2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multiperiodwithreg_v2" />
       <module name="personal" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="adpwithsim_cleanv1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="adpwithsim_cleanv1" />
+    <configuration name="multiperiodwithreg_v2_node2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multiperiodwithreg_v2_node2" />
       <module name="personal" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cost_hoca_ordli" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cost_hoca_ordli" />
+    <configuration name="multiperiodwithreg_v2_node3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multiperiodwithreg_v2_node3" />
       <module name="personal" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="cost_version4_berk_fixed" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cost_version4_berk_fixed" />
+    <configuration name="multiperiodwithreg_v2_node4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="multiperiodwithreg_v2_node4" />
       <module name="personal" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -94,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.adpwithsim_cleanv1" />
-        <item itemvalue="Application.adp_v3_21122022" />
-        <item itemvalue="Application.cost_version4_berk_fixed" />
-        <item itemvalue="Application.cost_hoca_ordli" />
-        <item itemvalue="Application.adp_v2" />
+        <item itemvalue="Application.multiperiodwithreg_v2" />
+        <item itemvalue="Application.multiperiod_optimization" />
+        <item itemvalue="Application.multiperiodwithreg_v2_node4" />
+        <item itemvalue="Application.multiperiodwithreg_v2_node3" />
+        <item itemvalue="Application.multiperiodwithreg_v2_node2" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672680588973</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="1">
+      <created>1672688453163</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1672688453163</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,41 +253,6 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="49" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022_original.java</url>
-          <line>234</line>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022.java</url>
-          <line>788</line>
-          <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022.java</url>
-          <line>827</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/cost_hoca.java</url>
-          <line>120</line>
-          <option name="timeStamp" value="123" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/cost_version3_berk.java</url>
-          <line>286</line>
-          <option name="timeStamp" value="128" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/cost_version3_berk.java</url>
-          <line>344</line>
-          <option name="timeStamp" value="129" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/cost_version1_berk.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="132" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/cost_version4_berk_fixed.java</url>
           <line>286</line>
@@ -273,13 +285,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/adpwithsim_cleanv1.java</url>
-          <line>301</line>
+          <line>305</line>
           <option name="timeStamp" value="182" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/adpwithsim_cleanv1.java</url>
-          <line>637</line>
+          <line>641</line>
           <option name="timeStamp" value="187" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/multiperiodwithreg_v1_old.java</url>
+          <line>263</line>
+          <option name="timeStamp" value="197" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/multiperiodwithreg_v2.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="198" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/adp_v2.java</url>
@@ -292,15 +314,6 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="arr[0]" language="JAVA" />
-        <watch expression="Z_bigSDouble[0]" />
-        <watch expression="Z_bigSDouble[5]" />
-        <watch expression="poissonDistProbability" />
-        <watch expression="errors" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

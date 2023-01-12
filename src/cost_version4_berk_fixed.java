@@ -226,9 +226,9 @@ public class cost_version4_berk_fixed {
         double lambda_all=8;
         String case_number="18";
 
-        String csvFile = "C:\\Users\\berkc\\IdeaProjects\\personal\\All Results-2\\Regression Results\\Results for all periods_version_4_CASE18.csv";
+        String csvFile = "C:\\Users\\berkc\\IdeaProjects\\personal\\All Results-2\\Regression Results\\Results for all periods_Multiperiod_version2_CASE_0.csv";
 
-        int period =2;
+        int period =4;
 
         double[] B0 = new double[period];
         double[] B1 = new double[period];

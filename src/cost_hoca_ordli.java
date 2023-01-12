@@ -269,7 +269,7 @@ public class cost_hoca_ordli {
             Solutionnn.close();
 
             //write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m,period,"Solution",M,M+m,0,m,Z_bigSDouble);
-            write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"ALL_COND_Solution",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
+            //write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"ALL_COND_Solution",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
             //write_sols_for_Z_bigSDouble_v2(period,alpha,lambda,m, period,"Solution",0,s+m,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble);
             //write_sols_for_Z_bigSDouble_v3(period,alpha,lambda,m, period,"ONLY_POSS_COND_Solution",0,s+m,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
             //write_sols_for_Z_bigSDouble_v3(period,alpha,lambda,m, period,"ONLY_POSS_COND_Solution_Cost_Enishoca",0,Z_bigSDouble[0][0].length,0,Z_bigSDouble[0][0][0].length,Z_bigSDouble,M,MM);
@@ -415,6 +415,8 @@ public class cost_hoca_ordli {
 
 
     }
+
+
 
     public static double[] SimulationMatrix_v3adapted(int period, double[][][][] bigS,double[][][][] bigSC, double OP, double OPC,int m, double alphaSimulation, double lambdaSimulation, int unitCost, int fixedCost, int retailPrice, int returnCredit, double holdingCost, double backorderCost, int salvageValue,int M, int nresult) {
 
