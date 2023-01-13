@@ -19,181 +19,22 @@ public class multiperiod_optimization_node2 {
         for (int i = 0; i < nExperiment; i++) {
 
             System.out.println(" Experiment: " + i);
-            /*
-            //Basecase
+
+
+
+            //cASE-8
             double alpha1_all=0.1;
             double alpha2_all=0.4;
-            double holdingCost = 2;
+            double holdingCost = 1;
             double backorderCost = 20;
             int fixedCost = 25;
             int m = 10; //max demand
             double lambda_all=4;
 
-            String case_number="base";
-            int unitCost = 20;
-            int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
-
-            //Case-1
-            double alpha1_all=0.1;
-            double alpha2_all=0.4;
-            double holdingCost = 2;
-            double backorderCost =20 ;
-            int fixedCost =40 ;
-            int m = 10; //max demand
-            double lambda_all=4;
-            String case_number="1";
-            int unitCost = 20;
-            int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
-
-            //Case-2
-            double alpha1_all=0.1;
-            double alpha2_all=0.4;
-            double holdingCost =2.4 ;
-            double backorderCost =20 ;
-            int fixedCost = 40;
-            int m = 10; //max demand
-            double lambda_all=4;
-            String case_number="2";
-            int unitCost = 20;
-            int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
-
-            //Case-3
-            double alpha1_all=0.1;
-            double alpha2_all=0.4;
-            double holdingCost = 2;
-            double backorderCost =50 ;
-            int fixedCost =40 ;
-            int m = 10; //max demand
-            double lambda_all=4;
-            String case_number="3";
-            int unitCost = 20;
-            int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
-
-            //Case-4
-            double alpha1_all=0.1;
-            double alpha2_all=0.4;
-            double holdingCost = 2;
-            double backorderCost = 20;
-            int fixedCost = 100;
-            int m = 10; //max demand
-            double lambda_all=4;
-            String case_number="4";
-            int unitCost = 20;
-            int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
-
-            //Case-5
-            double alpha1_all=0.1;
-            double alpha2_all=0.4;
-            double holdingCost =2 ;
-            double backorderCost =5 ;
-            int fixedCost =100 ;
-            int m = 10; //max demand
-            double lambda_all=4;
-            String case_number="5";
-            int unitCost = 20;
-            int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
-
-            //Case-6
-            double alpha1_all=0.1;
-            double alpha2_all=0.4;
-            double holdingCost = ;
-            double backorderCost = ;
-            int fixedCost = ;
-            int m = 10; //max demand
-            double lambda_all=4;
-            String case_number="6";
-            int unitCost = 20;
-            int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
-
-            //Case-7
-            double alpha1_all=0.1;
-            double alpha2_all=0.4;
-            double holdingCost = ;
-            double backorderCost = ;
-            int fixedCost = ;
-            int m = 10; //max demand
-            double lambda_all=4;
-            String case_number="7";
-            int unitCost = 20;
-            int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
-
-            //Case-8
-            double alpha1_all=0.1;
-            double alpha2_all=0.4;
-            double holdingCost = ;
-            double backorderCost = ;
-            int fixedCost = ;
-            int m = 10; //max demand
-            double lambda_all=4;
             String case_number="8";
             int unitCost = 20;
             int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
-
-            //Case-9
-            double alpha1_all=0.1;
-            double alpha2_all=0.4;
-            double holdingCost = ;
-            double backorderCost = ;
-            int fixedCost = ;
-            int m = 10; //max demand
-            double lambda_all=4;
-            String case_number="9";
-            int unitCost = 20;
-            int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
-
-            //Case-10
-            double alpha1_all=0.1;
-            double alpha2_all=0.4;
-            double holdingCost = ;
-            double backorderCost = ;
-            int fixedCost = ;
-            int m = 10; //max demand
-            double lambda_all=4;
-            String case_number="10";
-            int unitCost = 20;
-            int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
-
-
-            //Empty
-            double alpha1_all=0.1;
-            double alpha2_all=0.4;
-            double holdingCost = ;
-            double backorderCost = ;
-            int fixedCost = ;
-            int m = 10; //max demand
-            double lambda_all=4;
-            String case_number="";
-            int unitCost = 20;
-            int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
-
-
- */
-
-
-            //Case-5
-            double alpha1_all=0.1;
-            double alpha2_all=0.4;
-            double holdingCost =2 ;
-            double backorderCost =5 ;
-            int fixedCost =100 ;
-            int m = 10; //max demand
-            double lambda_all=4;
-            String case_number="5";
-            int unitCost = 20;
-            int salvageValue = 0;
-            int [] retailPrice =  {80,80,80,80,80,80};
+            int [] retailPrice =  {80,60,60,60,40,40};
 
 
             //-----------------------------------------------------------------------------------------------------------------------------

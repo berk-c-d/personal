@@ -5,44 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0cc88166-5847-4401-8a05-13469bd16016" name="Changes" comment="1">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multiperiod_1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multiperiod_optimization.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multiperiod_optimization_node1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multiperiod_optimization_node2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multiperiod_optimization_node3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multiperiodwithreg_v1_old.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multiperiodwithreg_v2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multiperiodwithreg_v2_node1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multiperiodwithreg_v2_node2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multiperiodwithreg_v2_node3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/multiperiodwithreg_v2_node4.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Debugg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HelloWorld.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProfitPoisson_BackOrder_Revisited_FINAL_04052022_original.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ProfitPoisson_Mars_Backorder_Costtogo_22112022_2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adpwithsim_cleanv1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adpwithsim_cleanv1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_esra.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_hoca.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_hoca_ordli.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cost_hoca_ordli.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_v3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_v3_withcomment1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_version1_berk.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_version2_berk.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_version3_berk.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_version3_esra1_m.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_version4_berk_exactbreak.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_version4_berk_exactbreakwithreg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cost_version4_berk_fixed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cost_version4_berk_fixed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/float_converted.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/temporj.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/version_2_temp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/withcomment_1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/withcomment_2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/withcomment_4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/withcomment_5.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/multiperiod_optimization.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/multiperiod_optimization.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672688453163</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="1">
+      <created>1673555728973</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1673555728973</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
